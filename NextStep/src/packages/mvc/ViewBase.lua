@@ -37,7 +37,16 @@ function ViewBase:createResoueceNode(resourceFilename)
         self.resourceNode_:removeSelf()
         self.resourceNode_ = nil
     end
-    self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
+    
+    local services = require "src/app/Services.lua"
+    services.init()
+    
+    local mainSceneFile = require "res/MainScene.lua"
+    local result = mainSceneFile.create()
+    self.resourceNode_ = result.root
+    self.resourceNode_:addChild(services.Static_HeroObject.Node)
+    
+    --self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
     assert(self.resourceNode_, string.format("ViewBase:createResoueceNode() - load resouce node from file \"%s\" failed", resourceFilename))
     self:addChild(self.resourceNode_)
 end
