@@ -4,7 +4,55 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="Male.png" />
+        <Folder Name="Image">
+          <Folder Name="Arrow">
+            <Image Name="Disabled.png" />
+            <Image Name="Normal.png" />
+            <Image Name="Pressed.png" />
+          </Folder>
+          <Folder Name="Block">
+            <Image Name="Block01.png" />
+            <Image Name="Block02.png" />
+            <Image Name="Block03.png" />
+            <Image Name="Block04.png" />
+            <Image Name="Block05.png" />
+            <Image Name="Block06.png" />
+            <Image Name="Block07.png" />
+            <Image Name="Block08.png" />
+            <Image Name="Block09.png" />
+            <Image Name="Block10.png" />
+            <Image Name="Block11.png" />
+            <Image Name="Block12.png" />
+            <Image Name="Block13.png" />
+            <Image Name="Block14.png" />
+            <Image Name="Block15.png" />
+            <Image Name="ExitBlock.png" />
+            <Image Name="HighlightBlock.png" />
+          </Folder>
+          <Folder Name="Charactor">
+            <Image Name="moveDown1.png" />
+            <Image Name="moveDown2.png" />
+            <Image Name="moveDown3.png" />
+            <Image Name="moveDown4.png" />
+            <Image Name="moveLeft1.png" />
+            <Image Name="moveLeft2.png" />
+            <Image Name="moveLeft3.png" />
+            <Image Name="moveLeft4.png" />
+            <Image Name="moveRight1.png" />
+            <Image Name="moveRight2.png" />
+            <Image Name="moveRight3.png" />
+            <Image Name="moveRight4.png" />
+            <Image Name="moveUp1.png" />
+            <Image Name="moveUp2.png" />
+            <Image Name="moveUp3.png" />
+            <Image Name="moveUp4.png" />
+          </Folder>
+          <Folder Name="Other">
+            <Image Name="Treasure.png" />
+          </Folder>
+          <Image Name="Map.png" />
+        </Folder>
+        <Project Name="HeroNode.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>
