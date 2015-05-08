@@ -11,6 +11,7 @@ end
 
 function HeroObject.JoyStickCallback(luaFileName, node, callbackName)
 	if node:getName()== "ButtonTop" then
+	    
         return ButtonTopCallback
 	end
 	

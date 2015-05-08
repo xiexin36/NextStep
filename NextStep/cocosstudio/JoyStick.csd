@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Node" ID="4460a57b-6ea4-4613-b54d-2d7113d1902d" Version="2.2.5.0" />
+  <PropertyGroup Type="Node" Name="JoyStick" ID="4460a57b-6ea4-4613-b54d-2d7113d1902d" Version="2.2.5.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -65,6 +65,17 @@
             <NormalFileData Type="Normal" Path="Image/Arrow/Normal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_1" ActionTag="-969943605" Tag="28" IconVisible="False" LeftMargin="95.0000" RightMargin="-141.0000" TopMargin="-24.0000" BottomMargin="-22.0000" ctype="SpriteObjectData">
+            <Size X="46.0000" Y="46.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="118.0000" Y="1.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize />
+            <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
