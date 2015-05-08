@@ -1,19 +1,19 @@
-local Static_MapObject = {}
+local MapObject = {}
 
 local mapData = {}
 
 local function generateCornerPosition()
-    local bornX = math.random(1, Static_MapObject.lineCount)
-    local bornY = math.random(1, Static_MapObject.rowCount)
+    local bornX = math.random(1, MapObject.lineCount)
+    local bornY = math.random(1, MapObject.rowCount)
 
-    if bornX > Static_MapObject.lineCount / 2 then
-        bornX = Static_MapObject.lineCount
+    if bornX > MapObject.lineCount / 2 then
+        bornX = MapObject.lineCount
     else
         bornX = 1
     end
 
-    if bornY > Static_MapObject.rowCount / 2 then
-        bornY = Static_MapObject.rowCount
+    if bornY > MapObject.rowCount / 2 then
+        bornY = MapObject.rowCount
     else
         bornY = 1
     end
@@ -22,56 +22,58 @@ local function generateCornerPosition()
 end
 
 local function cleanMapData()
-    for i = 1, Static_MapObject.lineCount do
-        for j = 1, Static_MapObject.rowCount do
-            Static_MapObject.SetMapTile(0, i, j)
+    for i = 1, MapObject.lineCount do
+        for j = 1, MapObject.rowCount do
+            MapObject.SetMapTile(0, i, j)
         end
     end
 end
 
 local function generateTreasurePosition()
-    Static_MapObject.treasurePosX = math.random(4,5)
-    Static_MapObject.treasurePosY = math.random(4,5)
+    MapObject.treasurePosX = math.random(4,5)
+    MapObject.treasurePosY = math.random(4,5)
 end
 
 
 
 
 
-Static_MapObject.lineCount = 8
-Static_MapObject.rowCount = 8
-Static_MapObject.tileWidth = 80
-Static_MapObject.tileHeight = 80
+MapObject.lineCount = 8
+MapObject.rowCount = 8
+MapObject.tileWidth = 80
+MapObject.tileHeight = 80
 
-Static_MapObject.heroPosX = 0
-Static_MapObject.heroPosY = 0
-Static_MapObject.doorPosX = 0
-Static_MapObject.doorPosY = 0
-Static_MapObject.treasurePosX = 0;
-Static_MapObject.treasurePosY = 0;
+MapObject.heroPosX = 0
+MapObject.heroPosY = 0
+MapObject.doorPosX = 0
+MapObject.doorPosY = 0
+MapObject.treasurePosX = 0;
+MapObject.treasurePosY = 0;
 
+MapObject.treasureNode = nil
 
-function Static_MapObject.SetMapTile(value, line, row)
-    mapData[(line-1) * Static_MapObject.rowCount + row] = value
+function MapObject.SetMapTile(value, line, row)
+    mapData[(line-1) * MapObject.rowCount + row] = value
 end
 
 
-function Static_MapObject.getMapTile(line, row)
-    return mapData[(line-1) * Static_MapObject.rowCount + row]
+function MapObject.getMapTile(line, row)
+    return mapData[(line-1) * MapObject.rowCount + row]
 end
 
 
-function Static_MapObject.MoveTo(curLine, curRow, side)
-    local curMapTile = Static_MapObject.getMapTile(curLine, curRow)
-    local resultLine = curLine
-    local resultRow = curRow
+function MapObject.MoveTo(side)
+    local curMapTile = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
+    local resultLine = MapObject.heroPosX
+    local resultRow = MapObject.heroPosY
     -- 调用block模块检查联通性
-    if Block.CanMoveTo(curMapTile, side) then
-    end
+--    if Block.CanMoveTo(curMapTile, side) then
+--    end
+    
 end
 
 
-function Static_MapObject.tilePosToScreenPos(line, row)
+function MapObject.tilePosToScreenPos(line, row)
     if line < 1 then
         line = 1
     end
@@ -79,25 +81,31 @@ function Static_MapObject.tilePosToScreenPos(line, row)
         row = 1
     end
 
-    local x = (line - 1) * Static_MapObject.tileWidth + Static_MapObject.tileWidth / 2
-    local y = (row - 1) * Static_MapObject.tileHeight + Static_MapObject.tileHeight / 2
+    local x = (line - 1) * MapObject.tileWidth + MapObject.tileWidth / 2
+    local y = (row - 1) * MapObject.tileHeight + MapObject.tileHeight / 2
     return x, y
 end
 
-function Static_MapObject.initMapData()
+function MapObject.initMapData()
     cleanMapData()
     local heroX, heroY = generateCornerPosition()
     local doorX, doorY = generateCornerPosition()
     while doorX == heroX and doorY == heroY do
         doorX, doorY = generateCornerPosition()
     end
-    Static_MapObject.heroPosX = heroX
-    Static_MapObject.heroPosY = heroY
-    Static_MapObject.doorPosX = doorX
-    Static_MapObject.doorPosY = doorY
+    MapObject.heroPosX = heroX
+    MapObject.heroPosY = heroY
+    MapObject.doorPosX = doorX
+    MapObject.doorPosY = doorY
+    generateTreasurePosition()
 
-    local scrX, scrY = Static_MapObject.tilePosToScreenPos(heroX, heroY)
+    if nil == MapObject.treasureNode then
+        MapObject.treasureNode = cc.Sprite:create("Image/Other/Treasure.png")
+    end
+
+    local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
     cc.exports.Services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
 
 end
 
@@ -105,6 +113,6 @@ end
 
 -- Init and return global map manager
 math.randomseed(os.time())
-Static_MapObject.initMapData()
+MapObject.initMapData()
 
-return Static_MapObject
+return MapObject
