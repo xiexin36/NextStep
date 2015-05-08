@@ -24,7 +24,7 @@ function Services.getMainScene()
     
     local result = mainSceneFile.create(Services.Static_HeroObject.JoyStickCallback)
     
-    cc.exports.Services.Static_MainScene = result    
+    Services.Static_MainScene = result    
     result.root:addChild(Services.Static_HeroObject.Node)
 
       
@@ -32,4 +32,4 @@ function Services.getMainScene()
 end
 
 
-return cc.exports.Services 
+return Services 

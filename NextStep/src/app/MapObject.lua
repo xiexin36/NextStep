@@ -66,7 +66,7 @@ function MapObject.MoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
     local resultLine = MapObject.heroPosX
     local resultRow = MapObject.heroPosY
-    -- 调用block模块检查联通性
+    -- 璋冪敤block妯″潡妫�煡鑱旈�鎬�
 --    if Block.CanMoveTo(curMapTile, side) then
 --    end
     
@@ -106,7 +106,7 @@ function MapObject.initMapData()
     local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
     services = require "src/app/Services.lua"
     services.Static_HeroObject.Node:setPosition(scrX, scrY)
-    MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
+    --MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
 
 end
 
