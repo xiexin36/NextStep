@@ -89,15 +89,15 @@ end
 
 function MapObject.initMapData()
     cleanMapData()
-    local heroX, heroY = generateCornerPosition()
-    local doorX, doorY = generateCornerPosition()
-    while doorX == heroX and doorY == heroY do
-        doorX, doorY = generateCornerPosition()
-    end
-    MapObject.heroPosX = heroX
-    MapObject.heroPosY = heroY
-    MapObject.doorPosX = doorX
-    MapObject.doorPosY = doorY
+--    local heroX, heroY = generateCornerPosition()
+--    local doorX, doorY = generateCornerPosition()
+--    while doorX == heroX and doorY == heroY do
+--        doorX, doorY = generateCornerPosition()
+--    end
+    MapObject.heroPosX = 1
+    MapObject.heroPosY = 1
+    MapObject.doorPosX = 8
+    MapObject.doorPosY = 8
     generateTreasurePosition()
 
     if nil == MapObject.treasureNode then
@@ -108,7 +108,7 @@ function MapObject.initMapData()
         MapObject.outDoorNode = cc.Sprite:create("Image/Block/ExitBlock.png")
     end
 
-    local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
+    local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
     services = require "src/app/Services.lua"
     services.Static_HeroObject.Node:setPosition(scrX, scrY)
     MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))

@@ -1,5 +1,10 @@
 local Services = {}
 
+LEFT_SIDE  = 1
+RIGHT_SIDE = 2
+UP_SIDE    = 3
+DOWN_SIDE  = 4
+
 local isInit = false 
 
 function Services.init()

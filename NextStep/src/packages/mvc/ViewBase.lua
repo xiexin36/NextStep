@@ -45,7 +45,9 @@ function ViewBase:createResoueceNode(resourceFilename)
     local result = mainSceneFile.create()
     self.resourceNode_ = result.root
     services.Static_HeroObject.Node:setPosition(cc.p(120, 120))
+
     self.resourceNode_:addChild(services.Static_HeroObject.Node)
+
     self.resourceNode_:addChild(services.Static_MapObject.treasureNode)
     self.resourceNode_:addChild(services.Static_MapObject.outDoorNode)
 
