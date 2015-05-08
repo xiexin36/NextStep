@@ -54,6 +54,7 @@
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />
         <Project Name="JoyStick.csd" Type="Node" />
+        <Project Name="Images.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

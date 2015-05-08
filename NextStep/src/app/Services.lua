@@ -1,4 +1,4 @@
-cc.exports.Services = {}
+local Services = {}
 
 local isInit = false 
 
