@@ -46,6 +46,8 @@ function ViewBase:createResoueceNode(resourceFilename)
     self.resourceNode_ = result.root
     self.resourceNode_:addChild(services.Static_HeroObject.Node)
     
+    
+    
     --self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
     assert(self.resourceNode_, string.format("ViewBase:createResoueceNode() - load resouce node from file \"%s\" failed", resourceFilename))
     self:addChild(self.resourceNode_)
