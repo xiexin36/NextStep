@@ -7,7 +7,7 @@ function HeroObject.init()
     HeroObject.Node = result.root
     HeroObject.Node:setZOrder(100)
     HeroObject.Animation = result.animation
-       
+    
 end
 
 local ListView_Block
@@ -19,7 +19,7 @@ function HeroObject.start()
     addButton(2)
 end
 
-local imageList = {"res/Image/Block/Block01.jpg","res/Image/Block/Block02.jpg","res/Image/Block/Block10.jpg"}
+local imageList = {"res/Image/Block/Block01.png","res/Image/Block/Block02.png","res/Image/Block/Block03.png"}
 local number = 1
 
 function addButton(index)
