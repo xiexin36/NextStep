@@ -112,14 +112,14 @@ function MapObject.initMapData()
 
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY)
-    MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
-    MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
+    --MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
+    --MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end
 
 
 
 -- Init and return global map manager
 math.randomseed(os.time())
-MapObject.initMapData()
+--MapObject.initMapData()
 
 return MapObject

@@ -31,8 +31,8 @@ function Services.getMainScene()
     
     Services.Static_MainScene = result    
     result.root:addChild(Services.Static_HeroObject.Node)
-    result.root:addChild(Services.Static_MapObject.treasureNode)
-    result.root:addChild(Services.Static_MapObject.outDoorNode)
+    --result.root:addChild(Services.Static_MapObject.treasureNode)
+    --result.root:addChild(Services.Static_MapObject.outDoorNode)
 
     Services.Static_HeroObject.start()
       
