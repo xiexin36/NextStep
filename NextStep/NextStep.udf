@@ -27,13 +27,5 @@
         <LastRunType Value="Unknown" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="HeroNode.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="HeroNode.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>
