@@ -51,6 +51,7 @@ MapObject.treasurePosX = 0;
 MapObject.treasurePosY = 0;
 
 MapObject.treasureNode = nil
+MapObject.outDoorNode = nil
 
 function MapObject.SetMapTile(value, line, row)
     mapData[(line-1) * MapObject.rowCount + row] = value
@@ -103,10 +104,14 @@ function MapObject.initMapData()
         MapObject.treasureNode = cc.Sprite:create("Image/Other/Treasure.png")
     end
 
+    if nil == MapObject.outDoorNode then
+        MapObject.outDoorNode = cc.Sprite:create("Image/Block/ExitBlock.png")
+    end
+
     local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
     cc.exports.Services.Static_HeroObject.Node:setPosition(scrX, scrY)
     MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
-
+    MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end
 
 
