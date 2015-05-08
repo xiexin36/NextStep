@@ -1,4 +1,4 @@
-cc.exports.Services = {}
+local Services = {}
 
 local isInit = false 
 
@@ -10,8 +10,8 @@ function Services.init()
 	local heroObjectFile = require "src/app/HeroObject.lua"
 	heroObjectFile.init()
 	Services.Static_HeroObject = heroObjectFile
-	
+
 	isInit = true
 end
 
-return cc.exports.Services 
+return Services 
