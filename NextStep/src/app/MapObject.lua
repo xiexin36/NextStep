@@ -67,7 +67,9 @@ function MapObject.MoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
     local resultLine = MapObject.heroPosX
     local resultRow = MapObject.heroPosY
-    -- 调用block模块检查联通性
+    if LEFT_SIDE == side then
+    end
+    -- 调用Block功能检查是否可以移动
 --    if Block.CanMoveTo(curMapTile, side) then
 --    end
     
@@ -109,8 +111,7 @@ function MapObject.initMapData()
     end
 
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
-    services = require "src/app/Services.lua"
-    services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    Services.Static_HeroObject.Node:setPosition(scrX, scrY)
     MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
     MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end

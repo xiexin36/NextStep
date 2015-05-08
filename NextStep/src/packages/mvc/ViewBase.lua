@@ -41,18 +41,9 @@ function ViewBase:createResoueceNode(resourceFilename)
     local services = require "src/app/Services.lua"
     services.init()
     
-    local mainSceneFile = require(resourceFilename)
-    local result = mainSceneFile.create()
-    self.resourceNode_ = result.root
-    services.Static_HeroObject.Node:setPosition(cc.p(120, 120))
-
-    self.resourceNode_:addChild(services.Static_HeroObject.Node)
-
-    self.resourceNode_:addChild(services.Static_MapObject.treasureNode)
-    self.resourceNode_:addChild(services.Static_MapObject.outDoorNode)
-
-    services.Static_MapObject.initMapData()
-
+    self.resourceNode_ = services.getMainScene()
+    
+    --self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
     assert(self.resourceNode_, string.format("ViewBase:createResoueceNode() - load resouce node from file \"%s\" failed", resourceFilename))
     self:addChild(self.resourceNode_)
 end
