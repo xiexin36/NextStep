@@ -1,4 +1,4 @@
-local Services = {}
+Services = {}
 
 local isInit = false 
 

@@ -104,8 +104,8 @@ function MapObject.initMapData()
     end
 
     local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
-    services = require "src/app/Services.lua"
-    services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    --services = require "src/app/Services.lua"
+    Services.Static_HeroObject.Node:setPosition(scrX, scrY)
     --MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
 
 end
