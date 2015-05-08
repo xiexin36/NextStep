@@ -27,6 +27,7 @@ function Services.getMainScene()
     Services.Static_MainScene = result    
     result.root:addChild(Services.Static_HeroObject.Node)
 
+    Services.Static_HeroObject.start()
       
     return result.root
 end

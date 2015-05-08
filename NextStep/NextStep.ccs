@@ -28,6 +28,13 @@
             <Image Name="Block15.png" />
             <Image Name="ExitBlock.png" />
             <Image Name="HighlightBlock.png" />
+            <Image Name="SelectFrame.jpg" />
+            <Image Name="Block Back.jpg" />
+            <Image Name="Block Treasure.jpg" />
+            <Image Name="Block01.jpg" />
+            <Image Name="Block02.jpg" />
+            <Image Name="Block03.jpg" />
+            <Image Name="Block10.jpg" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />
