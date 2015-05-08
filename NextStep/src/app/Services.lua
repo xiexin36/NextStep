@@ -11,6 +11,9 @@ function Services.init()
 	heroObjectFile.init()
 	Services.Static_HeroObject = heroObjectFile
 
+    local mapObj = require("src/app/MapObject")
+	Services.Static_MapObject = mapObj
+
 	isInit = true
 end
 

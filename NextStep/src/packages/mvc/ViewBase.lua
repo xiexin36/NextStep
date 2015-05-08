@@ -47,6 +47,9 @@ function ViewBase:createResoueceNode(resourceFilename)
     services.Static_HeroObject.Node:setPosition(cc.p(120, 120))
     self.resourceNode_:addChild(services.Static_HeroObject.Node)
 
+    services.Static_MapObject.initMapData()
+    
+    --self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
     assert(self.resourceNode_, string.format("ViewBase:createResoueceNode() - load resouce node from file \"%s\" failed", resourceFilename))
     self:addChild(self.resourceNode_)
 end
