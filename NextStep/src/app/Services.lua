@@ -1,4 +1,4 @@
-cc.exports.Services = {}
+local Services = {}
 
 local isInit = false 
 
@@ -17,4 +17,4 @@ function Services.init()
 	isInit = true
 end
 
-return cc.exports.Services 
+return Services 
