@@ -6,7 +6,7 @@ function HeroObject.init()
     result.root:runAction(result.animation)
     HeroObject.Node = result.root
     HeroObject.Animation = result.animation
-       
+    
 end
 
 function HeroObject.JoyStickCallback(luaFileName, node, callbackName)

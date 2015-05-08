@@ -1,10 +1,5 @@
 Services = {}
 
-LEFT_SIDE  = 1
-RIGHT_SIDE = 2
-UP_SIDE    = 3
-DOWN_SIDE  = 4
-
 local isInit = false 
 
 function Services.init()
@@ -15,6 +10,9 @@ function Services.init()
 	local heroObjectFile = require "src/app/HeroObject.lua"
 	heroObjectFile.init()
 	Services.Static_HeroObject = heroObjectFile
+
+    local blockObj = require("src/app/BlockManager")
+    Services.Static_BlockObject = blockObj
 
     local mapObj = require("src/app/MapObject")
 	Services.Static_MapObject = mapObj
@@ -29,10 +27,10 @@ function Services.getMainScene()
     
     local result = mainSceneFile.create(Services.Static_HeroObject.JoyStickCallback)
     
-    Services.Static_MainScene = result    
+    Services.Static_MainScene = result
     result.root:addChild(Services.Static_HeroObject.Node)
-    result.root:addChild(Services.Static_MapObject.treasureNode)
-    result.root:addChild(Services.Static_MapObject.outDoorNode)
+
+    Services.Static_MapObject.start()
 
     return result.root
 end

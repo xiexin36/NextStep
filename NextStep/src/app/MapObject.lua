@@ -1,6 +1,7 @@
 local MapObject = {}
 
 local mapData = {}
+local isInited = false
 
 local function generateCornerPosition()
     local bornX = math.random(1, MapObject.lineCount)
@@ -24,7 +25,7 @@ end
 local function cleanMapData()
     for i = 1, MapObject.lineCount do
         for j = 1, MapObject.rowCount do
-            MapObject.SetMapTile(0, i, j)
+            MapObject.SetMapTile(nil, i, j)
         end
     end
 end
@@ -34,6 +35,12 @@ local function generateTreasurePosition()
     MapObject.treasurePosY = math.random(4,5)
 end
 
+local lightBlocks = {}
+local function createCanEnterNodes()
+    for i = 1,3 do
+        lightBlocks[i] = cc.Sprite:create('Image/Block/ExitBlock.png')
+    end
+end
 
 
 
@@ -90,6 +97,7 @@ function MapObject.tilePosToScreenPos(line, row)
 end
 
 function MapObject.initMapData()
+    isInited = false
     cleanMapData()
 --    local heroX, heroY = generateCornerPosition()
 --    local doorX, doorY = generateCornerPosition()
@@ -103,19 +111,28 @@ function MapObject.initMapData()
     generateTreasurePosition()
 
     if nil == MapObject.treasureNode then
-        MapObject.treasureNode = cc.Sprite:create("Image/Other/Treasure.png")
+        MapObject.treasureNode = Services.Static_BlockObject.CreateTreasureBlock()
     end
 
     if nil == MapObject.outDoorNode then
-        MapObject.outDoorNode = cc.Sprite:create("Image/Block/ExitBlock.png")
+        MapObject.outDoorNode = Services.Static_BlockObject.CreateExitBlock()
     end
+    isInited = true
+end
+
+function MapObject.start()
+    if false == isInited then
+        MapObject.initMapData()
+    end
+
+    Services.Static_MainScene.root:addChild(MapObject.treasureNode.Node)
+    Services.Static_MainScene.root:addChild(MapObject.outDoorNode.Node)
 
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY)
-    MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
-    MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
+    MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
+    MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end
-
 
 
 -- Init and return global map manager
