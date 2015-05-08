@@ -1,8 +1,8 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Node" ID="be82e29c-f8c9-475f-a7b7-fa6bedcf95dc" Version="2.2.5.0" />
+  <PropertyGroup Type="Node" Name="HeroNode" ID="be82e29c-f8c9-475f-a7b7-fa6bedcf95dc" Version="2.2.5.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="75" Speed="1.0000" ActivedAnimationName="Up">
+      <Animation Duration="75" Speed="1.0000">
         <Timeline ActionTag="-358938894" Property="FileData">
           <TextureFrame FrameIndex="0" Tween="False">
             <TextureFile Type="Normal" Path="Image/Charactor/moveDown1.png" Plist="" />
@@ -56,16 +56,16 @@
       </Animation>
       <AnimationList>
         <AnimationInfo Name="Down" StartIndex="0" EndIndex="15">
-          <RenderColor A="150" R="153" G="50" B="204" />
+          <RenderColor A="255" R="153" G="50" B="204" />
         </AnimationInfo>
         <AnimationInfo Name="Left" StartIndex="20" EndIndex="35">
-          <RenderColor A="150" R="244" G="164" B="96" />
+          <RenderColor A="255" R="244" G="164" B="96" />
         </AnimationInfo>
         <AnimationInfo Name="Right" StartIndex="40" EndIndex="55">
-          <RenderColor A="150" R="153" G="50" B="204" />
+          <RenderColor A="255" R="153" G="50" B="204" />
         </AnimationInfo>
         <AnimationInfo Name="Up" StartIndex="60" EndIndex="75">
-          <RenderColor A="150" R="128" G="0" B="128" />
+          <RenderColor A="255" R="128" G="0" B="128" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="13" ctype="GameNodeObjectData">
@@ -79,7 +79,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="Image/Charactor/moveUp3.png" Plist="" />
+            <FileData Type="Normal" Path="Image/Charactor/moveDown1.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
