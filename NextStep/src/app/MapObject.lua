@@ -51,6 +51,7 @@ MapObject.treasurePosX = 0;
 MapObject.treasurePosY = 0;
 
 MapObject.treasureNode = nil
+MapObject.outDoorNode = nil
 
 function MapObject.SetMapTile(value, line, row)
     mapData[(line-1) * MapObject.rowCount + row] = value
@@ -66,7 +67,9 @@ function MapObject.MoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
     local resultLine = MapObject.heroPosX
     local resultRow = MapObject.heroPosY
-    -- 璋冪敤block妯″潡妫�煡鑱旈�鎬�
+    if LEFT_SIDE == side then
+    end
+    -- 调用Block功能检查是否可以移动
 --    if Block.CanMoveTo(curMapTile, side) then
 --    end
     
@@ -88,26 +91,29 @@ end
 
 function MapObject.initMapData()
     cleanMapData()
-    local heroX, heroY = generateCornerPosition()
-    local doorX, doorY = generateCornerPosition()
-    while doorX == heroX and doorY == heroY do
-        doorX, doorY = generateCornerPosition()
-    end
-    MapObject.heroPosX = heroX
-    MapObject.heroPosY = heroY
-    MapObject.doorPosX = doorX
-    MapObject.doorPosY = doorY
+--    local heroX, heroY = generateCornerPosition()
+--    local doorX, doorY = generateCornerPosition()
+--    while doorX == heroX and doorY == heroY do
+--        doorX, doorY = generateCornerPosition()
+--    end
+    MapObject.heroPosX = 1
+    MapObject.heroPosY = 1
+    MapObject.doorPosX = 8
+    MapObject.doorPosY = 8
     generateTreasurePosition()
 
     if nil == MapObject.treasureNode then
         MapObject.treasureNode = cc.Sprite:create("Image/Other/Treasure.png")
     end
 
-    local scrX, scrY = MapObject.tilePosToScreenPos(heroX, heroY)
-    --services = require "src/app/Services.lua"
-    Services.Static_HeroObject.Node:setPosition(scrX, scrY)
-    --MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
+    if nil == MapObject.outDoorNode then
+        MapObject.outDoorNode = cc.Sprite:create("Image/Block/ExitBlock.png")
+    end
 
+    local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
+    Services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    MapObject.treasureNode:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
+    MapObject.outDoorNode:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end
 
 

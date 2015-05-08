@@ -37,7 +37,7 @@ function ViewBase:createResoueceNode(resourceFilename)
         self.resourceNode_:removeSelf()
         self.resourceNode_ = nil
     end
-    
+
     local services = require "src/app/Services.lua"
     services.init()
     

@@ -1,5 +1,10 @@
 Services = {}
 
+LEFT_SIDE  = 1
+RIGHT_SIDE = 2
+UP_SIDE    = 3
+DOWN_SIDE  = 4
+
 local isInit = false 
 
 function Services.init()
@@ -26,6 +31,8 @@ function Services.getMainScene()
     
     Services.Static_MainScene = result    
     result.root:addChild(Services.Static_HeroObject.Node)
+    result.root:addChild(Services.Static_MapObject.treasureNode)
+    result.root:addChild(Services.Static_MapObject.outDoorNode)
 
     Services.Static_HeroObject.start()
       
