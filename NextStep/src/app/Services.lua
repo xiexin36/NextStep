@@ -10,7 +10,10 @@ function Services.init()
 	local heroObjectFile = require "src/app/HeroObject.lua"
 	heroObjectFile.init()
 	Services.Static_HeroObject = heroObjectFile
-	
+
+    local mapObj = require("src/app/MapObject")
+	Services.Static_MapObject = mapObj
+
 	isInit = true
 end
 
