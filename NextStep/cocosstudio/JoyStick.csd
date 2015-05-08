@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Node" ID="4460a57b-6ea4-4613-b54d-2d7113d1902d" Version="2.2.5.0" />
+  <PropertyGroup Type="Node" Name="JoyStick" ID="4460a57b-6ea4-4613-b54d-2d7113d1902d" Version="2.2.5.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

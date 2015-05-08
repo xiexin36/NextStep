@@ -30,6 +30,7 @@ function Services.getMainScene()
     Services.Static_MainScene = result
     result.root:addChild(Services.Static_HeroObject.Node)
 
+    Services.Static_HeroObject.start()
     Services.Static_MapObject.start()
 
     return result.root
