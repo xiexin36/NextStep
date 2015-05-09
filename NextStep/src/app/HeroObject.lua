@@ -67,9 +67,10 @@ end
 function HeroObject.start()
     --初始化小人位置
     HeroObject.LastBlockObject = GetCurrentBlock()
-    
-    
+        
     ListView_Block = Services.Static_MainScene["ListView_Block"]
+    ListView_Block:removeAllItems()
+    
     addButton(0)
     addButton(1)
     addButton(2)
@@ -105,8 +106,18 @@ local function ButtonRightCallback()
     HeroObject.MoveHero(RIGHT,"Right")
 end
 
+local function ButtonRestart()
+    Services.Static_MapObject.initMapData()
+    Services.Static_MapObject.start()
+    HeroObject.start()
+end
 
-function HeroObject.JoyStickCallback(luaFileName, node, callbackName)
+local function ButtonQuit()
+	
+end
+
+
+function HeroObject.eventCallback(luaFileName, node, callbackName)
 	if node:getName()== "ButtonUp" then	    
         return ButtonUpCallback
 	end
@@ -121,6 +132,12 @@ function HeroObject.JoyStickCallback(luaFileName, node, callbackName)
     
     if node:getName()== "ButtonRight" then
         return ButtonRightCallback
+    end
+    if node:getName()== "Button_Restart" then
+        return ButtonRestart
+    end
+    if node:getName()== "Button_Quit" then
+        return ButtonQuit
     end
 end
 

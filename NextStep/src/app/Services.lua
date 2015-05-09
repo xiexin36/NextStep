@@ -25,7 +25,7 @@ end
 function Services.getMainScene()
     local mainSceneFile = require "res/MainScene.lua"
     
-    local result = mainSceneFile.create(Services.Static_HeroObject.JoyStickCallback)
+    local result = mainSceneFile.create(Services.Static_HeroObject.eventCallback)
     
     Services.Static_MainScene = result
     result.root:addChild(Services.Static_HeroObject.Node)

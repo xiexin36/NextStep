@@ -9,7 +9,7 @@
           <AbstractNodeData Name="Panel_Right" ActionTag="1424252642" Tag="5" IconVisible="False" LeftMargin="640.0000" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="640" ctype="PanelObjectData">
             <Size X="320.0000" Y="640.0000" />
             <Children>
-              <AbstractNodeData Name="Button_Restart" ActionTag="1165810083" Tag="7" IconVisible="False" LeftMargin="46.4155" RightMargin="45.5845" TopMargin="19.5085" BottomMargin="555.4915" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_Restart" ActionTag="1165810083" CallBackType="Touch" CallBackName="Button_RestartCallback" Tag="7" IconVisible="False" LeftMargin="46.4155" RightMargin="45.5845" TopMargin="19.5085" BottomMargin="555.4915" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
                 <Size X="228.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="160.4155" Y="587.9915" />
@@ -24,7 +24,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_Quit" ActionTag="-1380799671" Tag="8" IconVisible="False" LeftMargin="46.4155" RightMargin="45.5845" TopMargin="95.1863" BottomMargin="479.8137" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_Quit" ActionTag="-1380799671" CallBackType="Touch" CallBackName="Button_QuitCallback" Tag="8" IconVisible="False" LeftMargin="46.4155" RightMargin="45.5845" TopMargin="95.1863" BottomMargin="479.8137" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
                 <Size X="228.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="160.4155" Y="512.3137" />
