@@ -25,7 +25,7 @@ end
 local function cleanMapData()
     for i = 1, MapObject.mapSize.height do
         for j = 1, MapObject.mapSize.width do
-            MapObject.SetMapTile(nil, cc.p(i, j))
+            MapObject.SetMapTile(nil, cc.p(i, j), true)
         end
     end
 end
@@ -55,7 +55,20 @@ MapObject.treasurePos = cc.p(0, 0)
 MapObject.treasureNode = nil
 MapObject.outDoorNode = nil
 
-function MapObject.SetMapTile(value, pos)
+local function setTileAniFinished()
+end
+
+function MapObject.SetMapTile(value, pos, inside)
+    -- inside = true 表示内部调用，无须动画处理，否则需要添加动画效果
+    if true ~= inside then
+        if nil ~= value then
+            local aniNode = value.Node
+            local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(MapObject.tilePosToScreenPos(pos))),
+                cc.CallFunc:create(setTileAniFinished))
+            aniNode:runAction(sequence)
+        end
+    end
+
     mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y] = value
 end
 
@@ -64,6 +77,9 @@ function MapObject.getMapTile(pos)
     return mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y]
 end
 
+function MoveToFinished()
+    print("Move to animation finished!")
+end
 
 function MapObject.MoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPos)
@@ -87,7 +103,19 @@ function MapObject.MoveTo(side)
     end
 
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
+    local val1 = targetMapTile == nil
+    if val1 then
+        release_print("targetMapTile is nil")
+    else
+        release_print("targetMapTile is NNNot nil")
+    end
 
+    if nil == curMapTile then
+        release_print("curMapTile is nil")
+    else
+        release_print("curMapTile is NNNot nil")
+    end
+    
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
         return false
     end
@@ -95,7 +123,12 @@ function MapObject.MoveTo(side)
     -- 调用Block功能检查是否可以移动
     if (nil == curMapTile and Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) or 
         (Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
-        Services.Static_HeroObject.Node:setPosition(MapObject.tilePosToScreenPos(cc.p(targetX, targetY)))
+
+        local heroNode = Services.Static_HeroObject.Node
+        local sequence = cc.Sequence:create(cc.MoveTo:create(0.1, cc.p(MapObject.tilePosToScreenPos(cc.p(targetX, targetY)))),
+            cc.CallFunc:create(MoveToFinished))
+        heroNode:runAction(sequence)
+
         MapObject.heroPos = cc.p(targetX, targetY)
         return true
     end
@@ -156,7 +189,7 @@ function MapObject.initMapData()
     MapObject.doorPos = cc.p(8, 8)
     generateTreasurePosition()
 
-    MapObject.SetMapTile(Services.Static_BlockObject.CreateStartBlock(), MapObject.heroPos)
+    MapObject.SetMapTile(Services.Static_BlockObject.CreateStartBlock(), MapObject.heroPos, true)
     if nil == MapObject.treasureNode then
         MapObject.treasureNode = Services.Static_BlockObject.CreateTreasureBlock()
     end
