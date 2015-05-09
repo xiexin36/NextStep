@@ -39,10 +39,11 @@ function ViewBase:createResoueceNode(resourceFilename)
     end
 
     local services = require "src/app/Services.lua"
-    services.init()
+       
+    services.Static_TopRoot = self
     
-    self.resourceNode_ = services.getMainScene()
-    
+    self.resourceNode_ = services.getStartLayer()
+        
     --self.resourceNode_ = cc.CSLoader:createNode(resourceFilename)
     assert(self.resourceNode_, string.format("ViewBase:createResoueceNode() - load resouce node from file \"%s\" failed", resourceFilename))
     self:addChild(self.resourceNode_)
