@@ -86,6 +86,7 @@
         <Project Name="JoyStick.csd" Type="Node" />
         <Project Name="Images.csd" Type="Node" />
         <Project Name="OpenAni.csd" Type="Node" />
+        <Project Name="Start.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

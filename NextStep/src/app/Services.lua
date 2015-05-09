@@ -2,6 +2,8 @@ Services = {}
 
 local isInit = false 
 
+Services.Static_TopRoot = nil
+
 function Services.init()
     if isInit then
     	return
@@ -22,7 +24,29 @@ function Services.init()
 end
 
 
+function Services.showMainScene()
+
+    Services.Static_TopRoot:removeAllChildren()
+	local mainScene = Services.getMainScene()
+	Services.Static_TopRoot:addChild(mainScene)
+end
+
+function Services.getStartLayer()
+	local startLayerFile = require("app/StartLayer")
+    Services.Static_StartLayer = startLayerFile
+    
+    local root = startLayerFile.create()	
+    return root
+end
+
 function Services.getMainScene()
+    
+    if Services.Static_MainScene ~= nil then
+    	return Services.Static_MainScene.root
+    end
+    
+    Services.init()
+
     local mainSceneFile = require "res/MainScene.lua"
     
     local result = mainSceneFile.create(Services.Static_HeroObject.eventCallback)
