@@ -6,7 +6,7 @@
       <ObjectData Name="Node" Tag="8" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="ButtonTop" ActionTag="-1628025306" CallBackType="Touch" CallBackName="ButtonTopCallback" Tag="9" Rotation="270.0000" RotationSkewX="270.0000" RotationSkewY="270.0000" IconVisible="False" LeftMargin="-36.4877" RightMargin="-33.5123" TopMargin="-86.4191" BottomMargin="16.4191" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonUp" ActionTag="-1628025306" CallBackType="Touch" CallBackName="ButtonUpCallback" Tag="9" Rotation="270.0000" RotationSkewX="270.0000" RotationSkewY="270.0000" IconVisible="False" LeftMargin="-36.4877" RightMargin="-33.5123" TopMargin="-86.4191" BottomMargin="16.4191" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="70.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-1.4877" Y="51.4191" />
