@@ -91,6 +91,7 @@ end
 function blockObject.CreateTreasureBlock()
     local tNode = CreatBlock(0, BLOCKTYPE_TREASURE, cc.Sprite:create('Image/Block/Block Treasure.png'))
     local tBox = cc.Sprite:create('Image/Other/Treasure.png')
+    tBox:setTag(798)
     local tNodeSize = tNode.Node:getContentSize()
     tBox:setPosition(tNodeSize.width / 2, tNodeSize.height / 2)
     tNode.Node:addChild(tBox)
