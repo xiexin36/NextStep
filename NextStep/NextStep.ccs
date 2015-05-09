@@ -51,6 +51,7 @@
           <Folder Name="Other">
             <Image Name="Treasure.png" />
             <Image Name="MainSceneRightPanel.jpg" />
+            <Image Name="Frames.png" />
           </Folder>
           <Image Name="Map.png" />
           <Folder Name="Button">
