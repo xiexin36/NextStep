@@ -39,8 +39,8 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="16.0000" RightMargin="14.0000" TopMargin="222.0000" BottomMargin="308.0000" ctype="ImageViewObjectData">
-                <Size X="290.0000" Y="110.0000" />
+              <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="11.0000" RightMargin="9.0000" TopMargin="217.0000" BottomMargin="303.0000" ctype="ImageViewObjectData">
+                <Size X="300.0000" Y="120.0000" />
                 <Children>
                   <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="15.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                     <Size X="260.0000" Y="110.0000" />
@@ -61,8 +61,8 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5031" Y="0.5672" />
-                <PreSize X="0.9063" Y="0.1719" />
-                <FileData Type="Normal" Path="Image/Block/SelectFrame.jpg" Plist="" />
+                <PreSize X="0.9375" Y="0.1875" />
+                <FileData Type="Normal" Path="Image/Block/SelectFrame.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
