@@ -35,21 +35,22 @@ function blockObject.HasDirection(block, direction)
     return remainder == 0
 end
 
-local function CreatBlock(blockMask, blockType, node, filePath)
+local function CreatBlock(blockMask, blockType, node)
     local block = {}
     block.Mask = blockMask
     block.Type = blockType
     block.Node = node
-    block.FilePath = filePath
     return block
 end
 
 function blockObject.CreateNormalBlock()
     local blockMask = math.random(1, 15)
-    local key = 'Block' .. string.format("%02d.png", blockMask)
-    local filePath = 'Image/Block/' .. key
+    local key = 'Block' .. string.format("%02d", blockMask)
+    local filePath = 'Image/Block/' .. key ..'.png'
     local node = cc.Sprite:create(filePath)
-    return CreatBlock(BlockMask[key], BLOCKTYPE_NORMAL, node, filePath)
+    local block = CreatBlock(BlockMask[key], BLOCKTYPE_NORMAL, node)
+    block.FilePath = filePath
+    return block
 end
 
 function blockObject.CreateStartBlock()
