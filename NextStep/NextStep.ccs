@@ -29,6 +29,8 @@
             <Image Name="ExitBlock.png" />
             <Image Name="HighlightBlock.png" />
             <Image Name="SelectFrame.png" />
+            <Image Name="Block Back.png" />
+            <Image Name="Block Treasure.png" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />
@@ -51,7 +53,6 @@
           <Folder Name="Other">
             <Image Name="Treasure.png" />
             <Image Name="MainSceneRightPanel.jpg" />
-            <Image Name="Frames.png" />
           </Folder>
           <Image Name="Map.png" />
           <Folder Name="Button">
@@ -62,6 +63,12 @@
             <Image Name="ResetBlockDisabled.png" />
             <Image Name="ResetBlockNormal.png" />
             <Image Name="ResetBlockPressed.png" />
+          </Folder>
+          <Folder Name="Frames">
+            <Image Name="Frames.png" />
+            <Image Name="FrameBottom.png" />
+            <Image Name="FrameTopLeft.png" />
+            <Image Name="FrameTopRight.png" />
           </Folder>
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />

@@ -6,11 +6,11 @@ HeroObject.Block = nil
 
 local function GenerateNewBlcok()
     local block = Services.Static_BlockObject.CreateNormalBlock()
-    block.Node:setPosition(920, 440)
+    block.Node:setPosition(890, 400)
     block.Node:setLocalZOrder(10)
-    --block.Node:retain()
-    HeroObject.Block = block
+    block.Node:retain()
     Services.Static_MainScene.root:addChild(block.Node)
+    HeroObject.Block = block
 end
 
 function HeroObject.init()
@@ -30,7 +30,17 @@ local function GetCurrentBlock()
     return Services.Static_MapObject.getMapTile(heroPos)
 end
 
+local eventEnabled = true
+local function EventDisabled()
+    if not eventEnabled then
+        eventEnabled = true
+        return true
+    end
+    eventEnabled = false
+end
+
 local function blockButtonCallback(sender)
+    if EventDisabled() then return end
     --sender:addTouchEventListener(nil)
     local index=ListView_Block:getIndex(sender)
     local block = sender.BlockObject
@@ -43,8 +53,8 @@ local function blockButtonCallback(sender)
     block.Node:setPosition(x, y)
     block.Node:setLocalZOrder(10)
     -- before add node in block, remove it first to avoid multi-times add.
-    Services.Static_MainScene.root:removeChild(block.Node)
-    Services.Static_MainScene.root:addChild(block.Node)
+    --Services.Static_MainScene.root:removeChild(block.Node)
+    --Services.Static_MainScene.root:addChild(block.Node)
     block.Node:release()
 
     local heroPos = Services.Static_MapObject.heroPos
@@ -57,24 +67,11 @@ local function blockButtonCallback(sender)
     --HeroObject.Block.Node:runAction(sequence)
 end
 
-local function addButtonWithBlock(block)
-    local button = ccui.Button:create(block.FilePath)
-    button.BlockObject = block
-    local sprite = cc.Sprite:create("Image/Block/HighlightBlock.png")
-    sprite:setAnchorPoint(0,0)
-    sprite:setPosition(-4,-5)
-    button.HighlightSprite = sprite
-    button:addChild(sprite)
-
-    ListView_Block:pushBackCustomItem(button)
-    button:addTouchEventListener(blockButtonCallback)
-end
-
 local function addButton()
-
-    local block = Services.Static_BlockObject.CreateNormalBlock()
+    local block = HeroObject.Block --Services.Static_BlockObject.CreateNormalBlock()
     block.Node:retain()
     local button = ccui.Button:create(block.FilePath)
+    
     button.BlockObject = block
     local sprite = cc.Sprite:create("Image/Block/HighlightBlock.png")
     sprite:setAnchorPoint(0,0)
@@ -84,7 +81,7 @@ local function addButton()
 
     ListView_Block:pushBackCustomItem(button)
     button:addTouchEventListener(blockButtonCallback)
-
+    GenerateNewBlcok()
 end
 
 function HeroObject.start()
@@ -94,25 +91,15 @@ function HeroObject.start()
     ListView_Block = Services.Static_MainScene["ListView_Block"]
     ListView_Block:removeAllItems()
     
-    addButton(0)
-    addButton(1)
-    addButton(2)
-    
-    HeroObject.DisableBlocksList()
     GenerateNewBlcok()
+    for i = 1, 3 do
+        addButton()
+    end
+
+    HeroObject.DisableBlocksList()
 end
 
 -- JoyStick
-
-local eventEnabled = true
-local function EventDisabled()
-    if not eventEnabled then
-        eventEnabled = true
-        return true
-    end
-    eventEnabled = false
-end
-
 
 local function ButtonUpCallback()
     HeroObject.MoveHero(UP,"Up")  
@@ -135,7 +122,7 @@ local function ButtonRestart()
         return 
     end
     Services.Static_MapObject.initMapData()
-    Services.Static_MapObject.start()
+    Services.Static_MapObject.restart()
     HeroObject.start()
 end
 
@@ -178,18 +165,20 @@ function HeroObject.MoveHero(direction, animation)
     --先移动小人,然后判断小人的位置是否有效
 	print(animation)
 	HeroObject.Animation:play(animation,false) 
-    Services.Static_MapObject.MoveTo(direction)
-    
-    local currentBlock = GetCurrentBlock()
-    
-    --如果是空格子,则更新可用块
-    if currentBlock == nil then
-        HeroObject.LastDirection = direction
-    	HeroObject.UpdateBlocksList()
-    else
-        HeroObject.DisableBlocksList()
+    local isOK = Services.Static_MapObject.MoveTo(direction)
+    --如果小人移动了, 则刷新
+    if isOK then
+        local currentBlock = GetCurrentBlock()
+        --如果是空格子,则更新可用块
+        if currentBlock == nil then
+            HeroObject.LastDirection = direction
+            HeroObject.UpdateBlocksList()
+        else
+            HeroObject.DisableBlocksList()
+        end
     end
-   
+    
+
 end
 
 --禁用所有的格子
@@ -258,9 +247,7 @@ end
 
 --设置格子后, 生成新的格子
 function HeroObject.TileMapSettedCallback()
-    --addButton()
-    addButtonWithBlock(HeroObject.Block)
-    GenerateNewBlcok()
+    addButton()
     HeroObject.DisableBlocksList()
 end
 

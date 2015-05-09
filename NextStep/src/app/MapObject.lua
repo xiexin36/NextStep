@@ -27,6 +27,10 @@ end
 local function cleanMapData()
     for i = 1, MapObject.mapSize.height do
         for j = 1, MapObject.mapSize.width do
+            local tempNode = MapObject.getMapTile(cc.p(i, j))
+            if nil ~= tempNode and tempNode.Type ~= BLOCKTYPE_START and tempNode.Type ~= BLOCKTYPE_EXIT and tempNode.Type ~= BLOCKTYPE_TREASURE then
+                Services.Static_MainScene.root:removeChild(tempNode.Node, true)
+            end
             MapObject.SetMapTile(nil, cc.p(i, j), true)
         end
     end
@@ -224,7 +228,7 @@ function MapObject.initMapData()
     if nil == MapObject.outDoorNode then
         MapObject.outDoorNode = Services.Static_BlockObject.CreateExitBlock()
     end
-    createCanEnterNodes()
+
     isInited = true
 end
 
@@ -233,6 +237,8 @@ function MapObject.start()
         MapObject.initMapData()
     end
 
+    createCanEnterNodes()
+
     Services.Static_MainScene.root:addChild(MapObject.treasureNode.Node)
     Services.Static_MainScene.root:addChild(MapObject.outDoorNode.Node)
     local startBlock = MapObject.getMapTile(MapObject.heroPos)
@@ -240,14 +246,20 @@ function MapObject.start()
     for i = 1,3 do
         Services.Static_MainScene.root:addChild(lightBlocks[i])
     end
+    MapObject.restart()
+end
 
+function MapObject.restart()
+    local startBlock = MapObject.getMapTile(MapObject.heroPos)
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPos)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY + adjustYPos)
     startBlock.Node:setPosition(scrX, scrY)
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePos))
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPos))
+    MapObject.SetMapTile(MapObject.treasureNode, MapObject.treasurePos, true)
+    MapObject.SetMapTile(MapObject.outDoorNode, MapObject.doorPos, true)
+    hideAllHilightBlock()
     MapObject.checkSurroundAndHighLight()
 end
-
 
 return MapObject
