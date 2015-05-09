@@ -113,7 +113,7 @@ local function ButtonRestart()
 end
 
 local function ButtonQuit()
-	
+	--cc.Director.getInstance():end()
 end
 
 
@@ -177,12 +177,13 @@ function HeroObject.DisableBlocksList()
 end
 
 --更新当前可以使用的格子, 根据当前小人所处的位置
-function HeroObject.UpdateBlocksList()	
-	local items = ListView_Block:getItems()
+function HeroObject.UpdateBlocksList()
+
+
 	
+	local items = ListView_Block:getItems()	
     for key, var in pairs(items) do
-		local button = var
-		
+		local button = var		
         local blockObject = button.BlockObject
         local isEnable = Services.Static_BlockObject.HasDirection(blockObject, HeroObject.LastDirection)
         HeroObject.SetButtonState(button, isEnable)
@@ -190,11 +191,17 @@ function HeroObject.UpdateBlocksList()
 
 end
 
+function CheckBlokcsList(direction)
+	
+end
+
+--设置当前格子的状态
 function HeroObject.SetButtonState(button, isEnable)
     button:setEnabled(isEnable)
     button.HighlightSprite:setVisible(isEnable)
 end
 
+--设置格子后, 生成新的格子
 function HeroObject.TileMapSettedCallback()
     addButton()
     HeroObject.DisableBlocksList()
