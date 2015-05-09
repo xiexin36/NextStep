@@ -140,7 +140,7 @@ function HeroObject.MoveHero(direction, animation)
     
     --如果是空格子,则更新可用块
     if currentBlock == nil then 	
-    	HeroObject.LastDirection = direction
+        HeroObject.LastDirection = Services.Static_BlockObject.GetReverseDirection(direction)
     	HeroObject.UpdateBlocksList()
     else
         HeroObject.LastBlockObject = currentBlock
@@ -167,7 +167,7 @@ function HeroObject.UpdateBlocksList()
 		local button = var
 		
         local blockObject = button.BlockObject
-        local isEnable = Services.Static_BlockObject.HasDirection(HeroObject.LastBlockObject, HeroObject.LastDirection)
+        local isEnable = Services.Static_BlockObject.HasDirection(blockObject, HeroObject.LastDirection)
         HeroObject.SetButtonState(button, isEnable)
 	end
 
