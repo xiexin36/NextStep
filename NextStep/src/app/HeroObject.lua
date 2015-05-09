@@ -147,6 +147,8 @@ function HeroObject.UpdateBlocksList()
 	
 end
 
+function HeroObject.TileMapSettedCallback()
 
+end
 
 return HeroObject
