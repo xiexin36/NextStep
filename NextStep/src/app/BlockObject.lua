@@ -39,6 +39,7 @@ local function CreatBlock(blockMask, blockType, node)
     block.Mask = blockMask
     block.Type = blockType
     block.Node = node
+--    node:setAnchorPoint(cc.p(0.5 ,0.5))
     return block
 end
 
@@ -50,7 +51,7 @@ function blockObject.CreateNormalBlock()
 end
 
 function blockObject.CreateStartBlock()
-    CreatBlock(0, BLOCKTYPE_START, cc.Sprite:create('Image/Block/Block15.png'))
+    return CreatBlock(0, BLOCKTYPE_START, cc.Sprite:create('Image/Block/Block15.png'))
 end
 
 function blockObject.CreateExitBlock()
