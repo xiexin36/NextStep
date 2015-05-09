@@ -95,10 +95,15 @@ end
 function MoveToFinished()
     print("Move to animation finished")
     if MapObject.heroPos.x == MapObject.treasurePos.x and MapObject.heroPos.y == MapObject.treasurePos.y then
-        print("Reach the treasure!!!")
+        local tBox = MapObject.treasureNode.Node:getChildByTag(798)
+        if nil ~= tBox then
+            print("Reach the treasure!!!")
+--            MapObject.treasurePos.Node:removeChild(tBox, true)
+        end
     elseif MapObject.heroPos.x == MapObject.doorPos.x and MapObject.heroPos.y == MapObject.doorPos.y then
         print("Reach exit door, WIN!!!")
     end
+    Services.Static_HeroObject.MoveHeroEndCallback()
 end
 
 function MapObject.MoveTo(side)
@@ -126,6 +131,7 @@ function MapObject.MoveTo(side)
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
 
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
+        Services.Static_HeroObject.MoveHeroEndCallback()
         return false
     end
 
@@ -148,6 +154,7 @@ function MapObject.MoveTo(side)
         return true
     end
 
+    Services.Static_HeroObject.MoveHeroEndCallback()
     return false
 end
 
