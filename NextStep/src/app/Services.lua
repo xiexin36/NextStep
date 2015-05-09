@@ -36,5 +36,7 @@ function Services.getMainScene()
     return result.root
 end
 
+-- Init ramdomize seed
+math.randomseed(os.time())
 
 return Services 

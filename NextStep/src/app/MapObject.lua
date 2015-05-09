@@ -38,7 +38,8 @@ end
 local lightBlocks = {}
 local function createCanEnterNodes()
     for i = 1,3 do
-        lightBlocks[i] = cc.Sprite:create('Image/Block/ExitBlock.png')
+        lightBlocks[i] = cc.Sprite:create('Image/Block/HighlightBlock.png')
+        lightBlocks[i]:setVisible(false)
     end
 end
 
@@ -96,6 +97,11 @@ function MapObject.tilePosToScreenPos(line, row)
     return x, y
 end
 
+
+function MapObject.checkSurroundAndHighLight()
+end
+
+
 function MapObject.initMapData()
     isInited = false
     cleanMapData()
@@ -110,6 +116,8 @@ function MapObject.initMapData()
     MapObject.doorPosY = 8
     generateTreasurePosition()
 
+    local temp = Services.Static_BlockObject.CreateStartBlock()
+    MapObject.SetMapTile(temp, MapObject.heroPosX, MapObject.heroPosY)
     if nil == MapObject.treasureNode then
         MapObject.treasureNode = Services.Static_BlockObject.CreateTreasureBlock()
     end
@@ -117,6 +125,7 @@ function MapObject.initMapData()
     if nil == MapObject.outDoorNode then
         MapObject.outDoorNode = Services.Static_BlockObject.CreateExitBlock()
     end
+    createCanEnterNodes()
     isInited = true
 end
 
@@ -127,16 +136,18 @@ function MapObject.start()
 
     Services.Static_MainScene.root:addChild(MapObject.treasureNode.Node)
     Services.Static_MainScene.root:addChild(MapObject.outDoorNode.Node)
+    local startBlock = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
+    Services.Static_MainScene.root:addChild(startBlock.Node)
+    for i = 1,3 do
+        Services.Static_MainScene.root:addChild(lightBlocks[i])
+    end
 
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPosX, MapObject.heroPosX)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    startBlock.Node:setPosition(scrX, scrY)
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
 end
 
-
--- Init and return global map manager
-math.randomseed(os.time())
-MapObject.initMapData()
 
 return MapObject

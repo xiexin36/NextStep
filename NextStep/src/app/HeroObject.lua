@@ -5,7 +5,7 @@ function HeroObject.init()
     local result = heroNodeFile.create()
     result.root:runAction(result.animation)
     HeroObject.Node = result.root
-    HeroObject.Node:setZOrder(100)
+    HeroObject.Node:setLocalZOrder(100)
     HeroObject.Animation = result.animation
     
 end
