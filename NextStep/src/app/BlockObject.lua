@@ -85,7 +85,7 @@ function blockObject.CreateStartBlock()
 end
 
 function blockObject.CreateExitBlock()
-    return CreatBlock(0, BLOCKTYPE_EXIT, cc.Sprite:create('Image/Block/ExitBlock.png'))
+    return CreatBlock(0, BLOCKTYPE_EXIT, cc.Sprite:create('Image/Block/Block Back.png'))
 end
 
 function blockObject.CreateTreasureBlock()
