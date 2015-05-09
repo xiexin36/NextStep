@@ -43,6 +43,11 @@ local function createCanEnterNodes()
     end
 end
 
+local function hideAllHilightBlock()
+    for i = 1,3 do
+        lightBlocks[i]:setVisible(false)
+    end
+end
 
 
 
@@ -56,12 +61,16 @@ MapObject.treasureNode = nil
 MapObject.outDoorNode = nil
 
 local function setTileAniFinished()
+    print("Set tile animation finished");
+    Services.Static_HeroObject.TileMapSettedCallback()
+    MapObject.checkSurroundAndHighLight()
 end
 
 function MapObject.SetMapTile(value, pos, inside)
-    -- inside = true 表示内部调用，无须动画处理，否则需要添加动画效果
+    -- inside 为 true 表示内部调用，无须动画处理，否则需要添加动画效果
     if true ~= inside then
         if nil ~= value then
+            hideAllHilightBlock()
             local aniNode = value.Node
             local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(MapObject.tilePosToScreenPos(pos))),
                 cc.CallFunc:create(setTileAniFinished))
@@ -87,6 +96,8 @@ function MapObject.MoveTo(side)
     local targetX = MapObject.heroPos.x
     local targetY = MapObject.heroPos.y
 
+    hideAllHilightBlock()
+
     local otherSide = 0
     if LEFT == side then
         otherSide = RIGHT
@@ -103,20 +114,9 @@ function MapObject.MoveTo(side)
     end
 
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
-    local val1 = targetMapTile == nil
-    if val1 then
-        release_print("targetMapTile is nil")
-    else
-        release_print("targetMapTile is NNNot nil")
-    end
 
-    if nil == curMapTile then
-        release_print("curMapTile is nil")
-    else
-        release_print("curMapTile is NNNot nil")
-    end
-    
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
+        MapObject.checkSurroundAndHighLight()
         return false
     end
 
@@ -130,9 +130,11 @@ function MapObject.MoveTo(side)
         heroNode:runAction(sequence)
 
         MapObject.heroPos = cc.p(targetX, targetY)
+        MapObject.checkSurroundAndHighLight()
         return true
     end
 
+    MapObject.checkSurroundAndHighLight()
     return false
 end
 
@@ -155,22 +157,40 @@ end
 
 function MapObject.checkSurroundAndHighLight()
     local curBlock = MapObject.getMapTile(MapObject.heroPos)
+
     if nil == curBlock then
         return
     end
 
+    local hilightCount = 0
+
+    local function checkAndSetHilight(newPos, side, curNode)
+        if nil == MapObject.getMapTile(newPos) and Services.Static_BlockObject.HasDirection(curNode, side) then
+            hilightCount = hilightCount + 1
+            lightBlocks[hilightCount]:setPosition(MapObject.tilePosToScreenPos(newPos))
+            lightBlocks[hilightCount]:setVisible(true)
+        end
+    end
+
     -- 是否可以向左侧移动
     if MapObject.heroPos.x > 1 then
---        if nil == MapObject.getMapTile(MapObject.heroPosX - 1, MapObject.heroPosY) and  then
+        local nPos = cc.p(MapObject.heroPos.x - 1, MapObject.heroPos.y)
+        checkAndSetHilight(nPos, LEFT, curBlock)
     end
     -- 是否可以向右侧移动
     if MapObject.heroPos.x < MapObject.mapSize.width then
+        local nPos = cc.p(MapObject.heroPos.x + 1, MapObject.heroPos.y)
+        checkAndSetHilight(nPos, RIGHT, curBlock)
     end
     -- 是否可以向上方移动
     if MapObject.heroPos.y < MapObject.mapSize.height then
+        local nPos = cc.p(MapObject.heroPos.x, MapObject.heroPos.y + 1)
+        checkAndSetHilight(nPos, UP, curBlock)
     end
     -- 是否可以向下方移动
     if MapObject.heroPos.y > 1 then
+        local nPos = cc.p(MapObject.heroPos.x, MapObject.heroPos.y - 1)
+        checkAndSetHilight(nPos, DOWN, curBlock)
     end
 
 
