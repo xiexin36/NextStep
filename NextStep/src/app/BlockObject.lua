@@ -33,6 +33,11 @@ Block13 = LEFT * RIGHT * DOWN,
 Block14 = LEFT * UP * DOWN,
 Block15 = LEFT * UP * RIGHT * DOWN,
 }
+local function GenerateRandomType()
+    local value = math.random(1, 100)
+    if value <= 8 then
+    end
+end
 
 local blockObject = {}
 

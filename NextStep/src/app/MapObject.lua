@@ -240,7 +240,10 @@ function MapObject.start()
     for i = 1,3 do
         Services.Static_MainScene.root:addChild(lightBlocks[i])
     end
+    MapObject.restart()
+end
 
+function MapObject.restart()
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPos)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY + adjustYPos)
     startBlock.Node:setPosition(scrX, scrY)
@@ -248,6 +251,5 @@ function MapObject.start()
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPos))
     MapObject.checkSurroundAndHighLight()
 end
-
 
 return MapObject
