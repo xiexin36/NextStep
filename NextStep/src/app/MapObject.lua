@@ -56,10 +56,12 @@ MapObject.treasureNode = nil
 MapObject.outDoorNode = nil
 
 local function setTileAniFinished()
+    print("Set tile animation finished");
+    Services.Static_HeroObject.TileMapSettedCallback()
 end
 
 function MapObject.SetMapTile(value, pos, inside)
-    -- inside = true 表示内部调用，无须动画处理，否则需要添加动画效果
+    -- inside 为 true 表示内部调用，无须动画处理，否则需要添加动画效果
     if true ~= inside then
         if nil ~= value then
             local aniNode = value.Node
@@ -103,19 +105,7 @@ function MapObject.MoveTo(side)
     end
 
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
-    local val1 = targetMapTile == nil
-    if val1 then
-        release_print("targetMapTile is nil")
-    else
-        release_print("targetMapTile is NNNot nil")
-    end
 
-    if nil == curMapTile then
-        release_print("curMapTile is nil")
-    else
-        release_print("curMapTile is NNNot nil")
-    end
-    
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
         return false
     end
@@ -161,7 +151,8 @@ function MapObject.checkSurroundAndHighLight()
 
     -- 是否可以向左侧移动
     if MapObject.heroPos.x > 1 then
---        if nil == MapObject.getMapTile(MapObject.heroPosX - 1, MapObject.heroPosY) and  then
+        if nil == MapObject.getMapTile(cc.p(MapObject.heroPos.x-1, MapObject.heroPos.y)) and Services.Static_BlockObject.HasDirection(curBlock, LEFT) then
+        end
     end
     -- 是否可以向右侧移动
     if MapObject.heroPos.x < MapObject.mapSize.width then
