@@ -164,7 +164,7 @@ local function ButtonRestart()
 end
 
 local function ButtonQuit()
-	--cc.Director.getInstance():end()
+	cc.Director:getInstance():endToLua()
 end
 
 

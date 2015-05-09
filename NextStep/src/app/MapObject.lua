@@ -92,7 +92,6 @@ function MapObject.SetMapTile(value, pos, inside)
     mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y] = value
 end
 
-
 function MapObject.getMapTile(pos)
     return mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y]
 end
