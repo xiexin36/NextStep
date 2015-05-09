@@ -22,7 +22,10 @@ function HeroObject.init()
     HeroObject.Animation = result.animation
 end
 
-local ListView_Block
+--  当前可以选择块的列表
+local ListView_Block = nil
+--  重置按钮块列表
+local ListView_resetBtn = nil
 
 local function GetCurrentBlock()
     --初始化小人位置
@@ -42,7 +45,7 @@ end
 local function blockButtonCallback(sender)
     if EventDisabled() then return end
     --sender:addTouchEventListener(nil)
-    local index=ListView_Block:getIndex(sender)
+    local index = ListView_Block:getIndex(sender)
     local block = sender.BlockObject
     local x = sender:getPositionX()
     local y = sender:getPositionY()
@@ -84,19 +87,51 @@ local function addButton()
     GenerateNewBlcok()
 end
 
-function HeroObject.start()
-    --初始化小人位置
-    HeroObject.LastBlockObject = GetCurrentBlock()
-        
-    ListView_Block = Services.Static_MainScene["ListView_Block"]
-    ListView_Block:removeAllItems()
-    
-    GenerateNewBlcok()
-    for i = 1, 3 do
+local function fillBlockButtonList()
+	ListView_Block:removeAllItems()
+	
+	for i = 1, 3 do
+        GenerateNewBlcok() 
         addButton()
     end
 
     HeroObject.DisableBlocksList()
+end
+
+local function resetButtonCallback(sender)
+    local index = ListView_resetBtn:getIndex(sender)
+    ListView_resetBtn:removeItem(index)
+    fillBlockButtonList()
+    
+    local currentBlock = GetCurrentBlock()
+    --如果是空格子,则更新可用块
+    if currentBlock == nil then
+        HeroObject.UpdateBlocksList()
+    end
+end
+
+-- 初始化 重置按钮
+local function fillResetButtonList()
+    ListView_resetBtn = Services.Static_MainScene["ListView_resetBtn"]
+    local button = nil
+    for i = 1, 3 do
+        button = ccui.Button:create("Image/Button/ResetBlockNormal.png","Image/Button/ResetBlockPressed.png")
+        ListView_resetBtn:pushBackCustomItem(button)
+        button:addTouchEventListener(resetButtonCallback)
+    end
+    
+end
+
+
+function HeroObject.start()
+    --初始化小人位置
+    HeroObject.LastBlockObject = GetCurrentBlock()
+    ListView_Block = Services.Static_MainScene["ListView_Block"]
+    fillBlockButtonList()
+    
+    fillResetButtonList()    
+    
+    GenerateNewBlcok()           
 end
 
 -- JoyStick
@@ -178,8 +213,9 @@ function HeroObject.MoveHero(direction, animation)
         end
     end
     
-
 end
+
+
 
 --禁用所有的格子
 function HeroObject.DisableBlocksList()
@@ -193,50 +229,20 @@ end
 
 --更新当前可以使用的格子, 根据小人移动过来的方向
 function HeroObject.UpdateBlocksList()
-    local heroPos = Services.Static_MapObject.heroPos
-    local position = nil
-    HeroObject.CheckBlocksList(Services.Static_BlockObject.GetReverseDirection(HeroObject.LastDirection))
-    --Up
-    --position = cc.p(heroPos.x,heroPos.y+1)
-    --CheckNeighbourBlock(UP, position)
-    
-    --Down
-    --position = cc.p(heroPos.x,heroPos.y-1)
-    --CheckNeighbourBlock(DOWN, position)
-    
-    --Left
-    --position = cc.p(heroPos.x-1,heroPos.y)
-    --CheckNeighbourBlock(LEFT, position)
-    
-    --Right
-    --position = cc.p(heroPos.x+1,heroPos.y)
-    --CheckNeighbourBlock(RIGHT, position)
-        
-end
 
-function CheckNeighbourBlock(direction, position)
-    block = Services.Static_MapObject.getMapTile(position)
-    if block == nil then
-    	return
-    end
-    --先判断能否连通到当前的格子
-    local resverseDirection =Services.Static_BlockObject.GetReverseDirection(direction);
-    if Services.Static_BlockObject.HasDirection(block, resverseDirection) then
-        HeroObject.CheckBlocksList(direction)
-    end 
-end
-
-function HeroObject.CheckBlocksList(direction)
+    local reverseDirection = Services.Static_BlockObject.GetReverseDirection(HeroObject.LastDirection)
+    
     local items = ListView_Block:getItems() 
     for key, var in pairs(items) do
         local button = var      
         local blockObject = button.BlockObject
-        local isEnable = Services.Static_BlockObject.HasDirection(blockObject, direction)
+        local isEnable = Services.Static_BlockObject.HasDirection(blockObject, reverseDirection)
         --只有在可用时才设置
         if isEnable then
             HeroObject.SetButtonState(button, isEnable)
         end
     end
+        
 end
 
 --设置当前格子的状态

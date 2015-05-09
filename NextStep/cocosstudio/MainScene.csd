@@ -78,14 +78,14 @@
               <AbstractNodeData Name="Image_ResetBlock" ActionTag="-1504944931" Tag="22" IconVisible="False" LeftMargin="14.9129" RightMargin="120.0871" TopMargin="229.8071" BottomMargin="344.1929" ctype="ImageViewObjectData">
                 <Size X="185.0000" Y="66.0000" />
                 <Children>
-                  <AbstractNodeData Name="ListView_resetBtn" ActionTag="-1792112524" Tag="24" IconVisible="False" LeftMargin="14.5752" RightMargin="-29.5752" TopMargin="-140.9824" BottomMargin="6.9824" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
-                    <Size X="200.0000" Y="200.0000" />
+                  <AbstractNodeData Name="ListView_resetBtn" ActionTag="-1792112524" Tag="24" IconVisible="False" LeftMargin="14.5752" RightMargin="10.4248" TopMargin="9.0176" BottomMargin="6.9824" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" ItemMargin="1" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                    <Size X="160.0000" Y="50.0000" />
                     <AnchorPoint />
                     <Position X="14.5752" Y="6.9824" />
-                    <Scale ScaleX="0.8075" ScaleY="0.2669" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.0788" Y="0.1058" />
-                    <PreSize />
+                    <PreSize X="0.8649" Y="0.7576" />
                     <SingleColor A="255" R="150" G="150" B="255" />
                     <FirstColor A="255" R="150" G="150" B="255" />
                     <EndColor A="255" R="255" G="255" B="255" />
