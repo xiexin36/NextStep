@@ -93,7 +93,8 @@ function MapObject.MoveTo(side)
     end
 
     -- 调用Block功能检查是否可以移动
-    if Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) then
+    if (nil == curMapTile and Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) or 
+        (Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
         Services.Static_HeroObject.Node:setPosition(MapObject.tilePosToScreenPos(cc.p(targetX, targetY)))
         MapObject.heroPos = cc.p(targetX, targetY)
         return true
