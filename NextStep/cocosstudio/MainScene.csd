@@ -39,8 +39,8 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="12.0178" RightMargin="7.9822" TopMargin="274.3346" BottomMargin="245.6654" ctype="ImageViewObjectData">
-                <Size X="300.0000" Y="120.0000" />
+              <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="13.7433" RightMargin="12.2567" TopMargin="188.0642" BottomMargin="235.9358" ctype="ImageViewObjectData">
+                <Size X="294.0000" Y="216.0000" />
                 <Children>
                   <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="20.0000" TopMargin="8.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                     <Size X="265.0000" Y="110.0000" />
@@ -57,12 +57,12 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="162.0178" Y="305.6654" />
+                <Position X="160.7433" Y="343.9358" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5063" Y="0.4776" />
-                <PreSize X="0.9375" Y="0.1875" />
-                <FileData Type="Normal" Path="Image/Block/SelectFrame.png" Plist="" />
+                <PrePosition X="0.5023" Y="0.5374" />
+                <PreSize X="0.9187" Y="0.3375" />
+                <FileData Type="Normal" Path="Image/Other/Frames.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
