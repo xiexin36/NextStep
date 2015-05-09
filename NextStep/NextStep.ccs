@@ -59,6 +59,9 @@
             <Image Name="QuitPressed.png" />
             <Image Name="RestartNormal.png" />
             <Image Name="RestartPressed.png" />
+            <Image Name="ResetBlockDisabled.png" />
+            <Image Name="ResetBlockNormal.png" />
+            <Image Name="ResetBlockPressed.png" />
           </Folder>
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />
