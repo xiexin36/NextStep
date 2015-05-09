@@ -31,11 +31,6 @@ Block15 = LEFT * UP * RIGHT * DOWN,
 local blockObject = {}
 
 function blockObject.HasDirection(block, direction)
-    if nil == block.Mask then
-        release_print("block is nil")
-    else
-        release_print("block is NNNot nil")
-    end
     local remainder = math.fmod(block.Mask, direction)
     return remainder == 0
 end
