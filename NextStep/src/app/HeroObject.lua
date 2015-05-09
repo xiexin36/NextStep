@@ -154,7 +154,7 @@ local function ButtonRightCallback()
     HeroObject.MoveHero(RIGHT,"Right")
 end
 
-local function ButtonRestart()
+function HeroObject.Restart()
     if EventDisabled() then 
         return 
     end
@@ -163,7 +163,7 @@ local function ButtonRestart()
     HeroObject.start()
 end
 
-local function ButtonQuit()
+function HeroObject.Quit()
 	cc.Director:getInstance():endToLua()
 end
 
@@ -185,10 +185,10 @@ function HeroObject.eventCallback(luaFileName, node, callbackName)
         return ButtonRightCallback
     end
     if node:getName()== "Button_Restart" then
-        return ButtonRestart
+        return HeroObject.Restart
     end
     if node:getName()== "Button_Quit" then
-        return ButtonQuit
+        return HeroObject.Quit
     end
 end
 

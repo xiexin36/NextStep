@@ -17,13 +17,28 @@
             <FileData Type="Normal" Path="Image/Map.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="A" ActionTag="1323800085" Tag="6" IconVisible="False" LeftMargin="281.8177" RightMargin="632.1824" TopMargin="425.3110" BottomMargin="178.6890" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
-            <Size X="46.0000" Y="36.0000" />
+          <AbstractNodeData Name="ButtonTryAgain" ActionTag="1323800085" CallBackType="Touch" CallBackName="ButtonTryAgain" Tag="6" IconVisible="False" LeftMargin="269.8177" RightMargin="620.1824" TopMargin="425.3110" BottomMargin="178.6890" TouchEnable="True" FontSize="14" ButtonText="TryAgain" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="70.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="304.8177" Y="196.6890" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3175" Y="0.3073" />
+            <PreSize X="0.0729" Y="0.0562" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="255" G="127" B="80" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="ButtonQuit" ActionTag="391406029" CallBackType="Touch" CallBackName="ButtonQuit" Tag="7" IconVisible="False" LeftMargin="544.6498" RightMargin="369.3502" TopMargin="425.0212" BottomMargin="178.9787" TouchEnable="True" FontSize="14" ButtonText="Quit" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="46.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="567.6498" Y="196.9787" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5913" Y="0.3078" />
             <PreSize />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
