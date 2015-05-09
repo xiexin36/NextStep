@@ -164,7 +164,7 @@ function HeroObject.Restart()
 end
 
 function HeroObject.Quit()
-	--cc.Director.getInstance():endToLua()
+	cc.Director:getInstance():endToLua()
 end
 
 

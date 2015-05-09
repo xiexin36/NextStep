@@ -62,6 +62,8 @@
           <Folder Name="Other">
             <Image Name="Treasure.png" />
             <Image Name="MainSceneRightPanel.jpg" />
+            <Image Name="BaoXiang_guang5.png" />
+            <Image Name="BaoXiang_kai2.png" />
           </Folder>
           <Image Name="Map.png" />
           <Folder Name="Button">
@@ -83,7 +85,7 @@
         <Project Name="HeroNode.csd" Type="Node" />
         <Project Name="JoyStick.csd" Type="Node" />
         <Project Name="Images.csd" Type="Node" />
-        <Project Name="Test.csd" Type="Scene" />
+        <Project Name="OpenAni.csd" Type="Node" />
         <Project Name="Start.csd" Type="Scene" />
         <Project Name="Success.csd" Type="Scene" />
       </RootFolder>

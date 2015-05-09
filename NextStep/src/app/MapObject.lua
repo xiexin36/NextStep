@@ -49,6 +49,8 @@ local function createCanEnterNodes()
     end
 end
 
+local lightEnterBlock = nil;
+
 local function hideAllHilightBlock()
     for i = 1,3 do
         lightBlocks[i]:setVisible(false)
@@ -62,6 +64,8 @@ MapObject.tileSize = cc.size(80, 80)
 MapObject.heroPos = cc.p(0, 0)
 MapObject.doorPos = cc.p(0, 0)
 MapObject.treasurePos = cc.p(0, 0)
+
+MapObject.enterPoint = nil;
 
 MapObject.treasureNode = nil
 MapObject.outDoorNode = nil
@@ -81,12 +85,12 @@ function MapObject.SetMapTile(value, pos, inside)
             local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(MapObject.tilePosToScreenPos(pos))),
                 cc.CallFunc:create(setTileAniFinished))
             aniNode:runAction(sequence)
+            lightEnterBlock:setVisible(false)
         end
     end
 
     mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y] = value
 end
-
 
 function MapObject.getMapTile(pos)
     return mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y]
@@ -107,11 +111,19 @@ function MoveToFinished()
 end
 
 function MapObject.MoveTo(side)
+    local moveResult = MapObject.onMoveTo(side)
+    if(false == moveResult) then
+        Services.Static_HeroObject.MoveHeroEndCallback()
+    end
+
+    return moveResult
+end
+
+function MapObject.onMoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPos)
     local targetMapTile = nil
     local targetX = MapObject.heroPos.x
     local targetY = MapObject.heroPos.y
-
 
     local otherSide = 0
     if LEFT == side then
@@ -131,13 +143,24 @@ function MapObject.MoveTo(side)
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
 
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
-        Services.Static_HeroObject.MoveHeroEndCallback()
         return false
     end
 
     -- 调用Block功能检查是否可以移动
     if (nil == curMapTile and Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) or 
         (nil ~= curMapTile and Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
+
+        if nil == targetMapTile then
+            MapObject.enterPoint = cc.p(MapObject.heroPos.x, MapObject.heroPos.y)
+            lightEnterBlock:setPosition(MapObject.tilePosToScreenPos(MapObject.enterPoint))
+            lightEnterBlock:setVisible(true)
+        elseif curMapTile == nil and targetMapTile ~= nil and nil ~= MapObject.enterPoint then
+            if targetX ~= MapObject.enterPoint.x or targetY ~= MapObject.enterPoint.y then
+                return false
+            end
+            lightEnterBlock:setVisible(false)
+            MapObject.enterPoint = nil
+        end
 
         hideAllHilightBlock()
 
@@ -154,7 +177,6 @@ function MapObject.MoveTo(side)
         return true
     end
 
-    Services.Static_HeroObject.MoveHeroEndCallback()
     return false
 end
 
@@ -215,8 +237,6 @@ function MapObject.checkSurroundAndHighLight()
         local nPos = cc.p(MapObject.heroPos.x, MapObject.heroPos.y - 1)
         checkAndSetHilight(nPos, DOWN, curBlock)
     end
-
-
 end
 
 
@@ -241,6 +261,11 @@ function MapObject.initMapData()
         MapObject.outDoorNode = Services.Static_BlockObject.CreateExitBlock()
     end
 
+    if nil == lightEnterBlock then
+        lightEnterBlock = cc.Sprite:create('Image/Block/HighlightBlock.png')
+        lightEnterBlock:setVisible(false)
+    end
+
     isInited = true
 end
 
@@ -258,10 +283,12 @@ function MapObject.start()
     for i = 1,3 do
         Services.Static_MainScene.root:addChild(lightBlocks[i])
     end
+    Services.Static_MainScene.root:addChild(lightEnterBlock)
     MapObject.restart()
 end
 
 function MapObject.restart()
+    MapObject.moveCount = 0
     local startBlock = MapObject.getMapTile(MapObject.heroPos)
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPos)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY + adjustYPos)
