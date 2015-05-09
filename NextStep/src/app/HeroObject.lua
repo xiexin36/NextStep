@@ -19,17 +19,13 @@ function HeroObject.start()
     addButton(2)
 end
 
-local imageList = {"res/Image/Block/Block01.png","res/Image/Block/Block02.png","res/Image/Block/Block03.png"}
-local number = 1
 
 function addButton(index)
-    local button = ccui.Button:create(imageList[number])
-    --button:set
-    number = number+1
-    if number>3 then
-        number=1
-    end
     
+    local block = Services.Static_BlockObject.CreateNormalBlock()
+    local button = ccui.Button:create(block.FilePath)
+    button.BlockObject = block
+      
     ListView_Block:insertCustomItem(button , index)
     button:addTouchEventListener(blockButtonCallback)
     
@@ -38,7 +34,13 @@ end
 function blockButtonCallback(sender)
     --sender:addTouchEventListener(nil)
     local index=ListView_Block:getIndex(sender)
+    local block = sender.Block
+    --Services.Map
+    
     ListView_Block:removeItem(index)
+    
+    
+    
     addButton(index)
 end
 
