@@ -9,6 +9,14 @@
             <Image Name="Disabled.png" />
             <Image Name="Normal.png" />
             <Image Name="Pressed.png" />
+            <Image Name="DownNormal.png" />
+            <Image Name="DownPressed.png" />
+            <Image Name="LeftNormal.png" />
+            <Image Name="LeftPressed.png" />
+            <Image Name="RightNormal.png" />
+            <Image Name="RightPressed.png" />
+            <Image Name="UpNormal.png" />
+            <Image Name="UpPressed.png" />
           </Folder>
           <Folder Name="Block">
             <Image Name="Block01.png" />
@@ -31,6 +39,7 @@
             <Image Name="SelectFrame.png" />
             <Image Name="Block Back.png" />
             <Image Name="Block Treasure.png" />
+            <Image Name="BlockShadow.png" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />

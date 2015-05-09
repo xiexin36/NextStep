@@ -124,13 +124,13 @@
             <FileData Type="Normal" Path="Image/Map.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ProjectNode_JoyStick" ActionTag="-1358933878" Tag="13" IconVisible="True" LeftMargin="813.8882" RightMargin="146.1118" TopMargin="511.2614" BottomMargin="128.7386" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="ProjectNode_JoyStick" ActionTag="-1358933878" Tag="13" IconVisible="True" LeftMargin="812.4834" RightMargin="147.5166" TopMargin="518.2850" BottomMargin="121.7150" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
             <Size />
             <AnchorPoint />
-            <Position X="813.8882" Y="128.7386" />
+            <Position X="812.4834" Y="121.7150" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8478" Y="0.2012" />
+            <PrePosition X="0.8463" Y="0.1902" />
             <PreSize />
             <FileData Type="Normal" Path="JoyStick.csd" Plist="" />
           </AbstractNodeData>
