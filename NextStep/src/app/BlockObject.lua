@@ -77,7 +77,12 @@ function blockObject.CreateExitBlock()
 end
 
 function blockObject.CreateTreasureBlock()
-    return CreatBlock(0, BLOCKTYPE_TREASURE, cc.Sprite:create('Image/Other/Treasure.png'))
+    local tNode = CreatBlock(0, BLOCKTYPE_TREASURE, cc.Sprite:create('Image/Block/Block Treasure.png'))
+    local tBox = cc.Sprite:create('Image/Other/Treasure.png')
+    local tNodeSize = tNode.Node:getContentSize()
+    tBox:setPosition(tNodeSize.width / 2, tNodeSize.height / 2)
+    tNode.Node:addChild(tBox)
+    return tNode
 end
 
 function blockObject.CreateHighlightBlock()
