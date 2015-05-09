@@ -50,6 +50,7 @@
           </Folder>
           <Folder Name="Other">
             <Image Name="Treasure.png" />
+            <Image Name="MainSceneRightPanel.jpg" />
           </Folder>
           <Image Name="Map.png" />
         </Folder>
