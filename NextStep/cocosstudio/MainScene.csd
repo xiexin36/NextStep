@@ -3,7 +3,7 @@
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
-      <ObjectData Name="Scene" CallBackType="Touch" ctype="GameNodeObjectData">
+      <ObjectData Name="Scene" Visible="False" CallBackType="Touch" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
           <AbstractNodeData Name="Panel_Right" ActionTag="1424252642" Tag="5" IconVisible="False" LeftMargin="640.0000" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="640" ctype="PanelObjectData">

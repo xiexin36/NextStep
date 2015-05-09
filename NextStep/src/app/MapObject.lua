@@ -131,7 +131,7 @@ function MapObject.MoveTo(side)
 
     -- 调用Block功能检查是否可以移动
     if (nil == curMapTile and Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) or 
-        (Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
+        (nil ~= curMapTile and Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
 
         hideAllHilightBlock()
 
