@@ -7,7 +7,7 @@ HeroObject.Block = nil
 
 local function GenerateNewBlcok()
     local block = Services.Static_BlockObject.CreateNormalBlock()
-    block.Node:setPosition(920, 440)
+    block.Node:setPosition(890, 400)
     block.Node:setLocalZOrder(10)
     block.Node:retain()
     HeroObject.Block = block
