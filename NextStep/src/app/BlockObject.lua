@@ -10,6 +10,12 @@ BLOCKTYPE_EXIT = 102
 BLOCKTYPE_TREASURE = 103
 BLOCKTYPE_HIGHLIGHT = 104
 
+OppositeDirection = {}
+OppositeDirection[LEFT] = RIGHT
+OppositeDirection[UP] = DOWN
+OppositeDirection[RIGHT] = LEFT
+OppositeDirection[DOWN] = UP
+
 BlockMask={
 Block01 = LEFT,
 Block02 = UP,
@@ -33,6 +39,10 @@ local blockObject = {}
 function blockObject.HasDirection(block, direction)
     local remainder = math.fmod(block.Mask, direction)
     return remainder == 0
+end
+
+function blockObject.GetReverseDirection(direction)
+    return OppositeDirection[direction]
 end
 
 local function CreatBlock(blockMask, blockType, node)
