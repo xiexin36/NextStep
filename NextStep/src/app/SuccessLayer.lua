@@ -3,8 +3,11 @@ local SuccessLayer = {}
 SuccessLayer.LoadResult = nil
 
 
-local function buttonTryAgainCallback()
+local function buttonTryAgainCallback()   
+    Services.Static_TopRoot:removeChild(SuccessLayer.LoadResult.root)
     Services.showMainScene()
+    Services.Static_HeroObject.Restart()
+    -- 强制刷新EventEnable
     Services.Static_HeroObject.Restart()
 end
 
@@ -23,7 +26,7 @@ end
 
 function SuccessLayer.create()
 	local layerFile = require("res/Success")
-	local result = layerFile:create()
+    local result = layerFile.create(callBackProvider)
 	SuccessLayer.LoadResult = result
 	result.root:retain()
 	

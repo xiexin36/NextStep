@@ -25,16 +25,12 @@ end
 
 
 function Services.showMainScene()
-    Services.Static_TopRoot:removeAllChildren()
 	local mainScene = Services.getMainScene()
-	Services.Static_TopRoot:addChild(mainScene)
 end
 
 function Services.showSuccess()
-    Services.Static_TopRoot:removeAllChildren()
     local successLayer = Services.getSuccessLayer()
-    Services.Static_TopRoot:addChild(successLayer)
-    
+    Services.Static_TopRoot:addChild(successLayer)   
 end
 
 function Services.getStartLayer()
@@ -58,6 +54,8 @@ function Services.getMainScene()
     local result = mainSceneFile.create(Services.Static_HeroObject.eventCallback)
     --保留主场景
     result.root:retain()
+    
+    Services.Static_TopRoot:addChild(result.root)
     
     Services.Static_MainScene = result
     result.root:addChild(Services.Static_HeroObject.Node)
