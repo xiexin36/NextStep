@@ -8,6 +8,7 @@ BLOCKTYPE_NORMAL = 100
 BLOCKTYPE_START = 101
 BLOCKTYPE_EXIT = 102
 BLOCKTYPE_TREASURE = 103
+BLOCKTYPE_HIGHLIGHT = 104
 
 BlockMask={
 Block01 = LEFT,
@@ -40,7 +41,6 @@ local function CreatBlock(blockMask, blockType, node, filePath)
     block.Type = blockType
     block.Node = node
     block.FilePath = filePath
---    node:setAnchorPoint(cc.p(0.5 ,0.5))
     return block
 end
 
@@ -64,31 +64,8 @@ function blockObject.CreateTreasureBlock()
     return CreatBlock(0, BLOCKTYPE_TREASURE, cc.Sprite:create('Image/Other/Treasure.png'))
 end
 
-return blockObject
-
---[[
--- some test codes
-
-local function AddImages(rootNode)
-    local blockManager = require "src/app/BlockObject.lua"
-    for i = 1, 8 do
-        for j = 1, 8 do
-            local block = blockManager.CreateNormalBlock()
-            block.Node:setPosition(cc.p((i-1) * 80 + 40, (j-1) * 80 + 40))
-            rootNode:addChild(block.Node)
-        end
-        
-    end
+function blockObject.CreateHighlightBlock()
+    return CreatBlock(0, BLOCKTYPE_HIGHLIGHT, cc.Sprite:create('Image/Block/HighlightBlock.png'))
 end
 
---local heroObject = require('res/HeroNode.lua').create()
---local heroNode = heroObject.root
---heroNode:setPosition(cc.p(120, 120))
---heroNode:runAction(heroObject.animation)
-----heroObject.animation:gotoFrameAndPlay(40, 55, true)
---heroObject.animation:play("Right", true)
---heroNode:runAction(cc.MoveTo:create(0.5, cc.p(520, 120)))
---self.resourceNode_:addChild(heroNode)
---AddImages(self.resourceNode_)
-
-]]
+return blockObject
