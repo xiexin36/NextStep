@@ -39,6 +39,7 @@
             <Image Name="SelectFrame.png" />
             <Image Name="Block Back.png" />
             <Image Name="Block Treasure.png" />
+            <Image Name="BlockShadow.png" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />
