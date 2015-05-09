@@ -28,7 +28,7 @@
             <Image Name="Block15.png" />
             <Image Name="ExitBlock.png" />
             <Image Name="HighlightBlock.png" />
-            <Image Name="SelectFrame.jpg" />
+            <Image Name="SelectFrame.png" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />
