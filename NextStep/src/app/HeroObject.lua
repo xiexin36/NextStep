@@ -1,7 +1,6 @@
 local HeroObject = {}
 
 --上次站立的有效位置
-HeroObject.LastBlockObject = nil
 HeroObject.LastDirection = nil
 HeroObject.Block = nil
 
@@ -9,7 +8,7 @@ local function GenerateNewBlcok()
     local block = Services.Static_BlockObject.CreateNormalBlock()
     block.Node:setPosition(920, 440)
     block.Node:setLocalZOrder(10)
-    block.Node:retain()
+    --block.Node:retain()
     HeroObject.Block = block
     Services.Static_MainScene.root:addChild(block.Node)
 end
@@ -54,8 +53,8 @@ local function blockButtonCallback(sender)
 
     ListView_Block:removeItem(index)
 
-    local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(x, y)), nil)
-    HeroObject.Block.Node:runAction(sequence)
+    --local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(x, y)), nil)
+    --HeroObject.Block.Node:runAction(sequence)
 end
 
 local function addButtonWithBlock(block)
@@ -132,6 +131,9 @@ local function ButtonRightCallback()
 end
 
 local function ButtonRestart()
+    if EventDisabled() then 
+        return 
+    end
     Services.Static_MapObject.initMapData()
     Services.Static_MapObject.start()
     HeroObject.start()
@@ -181,11 +183,10 @@ function HeroObject.MoveHero(direction, animation)
     local currentBlock = GetCurrentBlock()
     
     --如果是空格子,则更新可用块
-    if currentBlock == nil then 	
-        HeroObject.LastDirection = Services.Static_BlockObject.GetReverseDirection(direction)
+    if currentBlock == nil then
+        HeroObject.LastDirection = direction
     	HeroObject.UpdateBlocksList()
     else
-        HeroObject.LastBlockObject = currentBlock
         HeroObject.DisableBlocksList()
     end
    
@@ -201,23 +202,52 @@ function HeroObject.DisableBlocksList()
     end
 end
 
---更新当前可以使用的格子, 根据当前小人所处的位置
+--更新当前可以使用的格子, 根据小人移动过来的方向
 function HeroObject.UpdateBlocksList()
-
-
-	
-	local items = ListView_Block:getItems()	
-    for key, var in pairs(items) do
-		local button = var		
-        local blockObject = button.BlockObject
-        local isEnable = Services.Static_BlockObject.HasDirection(blockObject, HeroObject.LastDirection)
-        HeroObject.SetButtonState(button, isEnable)
-	end
-
+    local heroPos = Services.Static_MapObject.heroPos
+    local position = nil
+    HeroObject.CheckBlocksList(Services.Static_BlockObject.GetReverseDirection(HeroObject.LastDirection))
+    --Up
+    --position = cc.p(heroPos.x,heroPos.y+1)
+    --CheckNeighbourBlock(UP, position)
+    
+    --Down
+    --position = cc.p(heroPos.x,heroPos.y-1)
+    --CheckNeighbourBlock(DOWN, position)
+    
+    --Left
+    --position = cc.p(heroPos.x-1,heroPos.y)
+    --CheckNeighbourBlock(LEFT, position)
+    
+    --Right
+    --position = cc.p(heroPos.x+1,heroPos.y)
+    --CheckNeighbourBlock(RIGHT, position)
+        
 end
 
-function CheckBlokcsList(direction)
-	
+function CheckNeighbourBlock(direction, position)
+    block = Services.Static_MapObject.getMapTile(position)
+    if block == nil then
+    	return
+    end
+    --先判断能否连通到当前的格子
+    local resverseDirection =Services.Static_BlockObject.GetReverseDirection(direction);
+    if Services.Static_BlockObject.HasDirection(block, resverseDirection) then
+        HeroObject.CheckBlocksList(direction)
+    end 
+end
+
+function HeroObject.CheckBlocksList(direction)
+    local items = ListView_Block:getItems() 
+    for key, var in pairs(items) do
+        local button = var      
+        local blockObject = button.BlockObject
+        local isEnable = Services.Static_BlockObject.HasDirection(blockObject, direction)
+        --只有在可用时才设置
+        if isEnable then
+            HeroObject.SetButtonState(button, isEnable)
+        end
+    end
 end
 
 --设置当前格子的状态
