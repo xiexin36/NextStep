@@ -73,14 +73,38 @@ end
 
 function MapObject.MoveTo(side)
     local curMapTile = MapObject.getMapTile(MapObject.heroPosX, MapObject.heroPosY)
-    local resultLine = MapObject.heroPosX
-    local resultRow = MapObject.heroPosY
-    if LEFT_SIDE == side then
+    local targetMapTile = nil
+    local targetX = MapObject.heroPosX
+    local targetY = MapObject.heroPosY
+
+    local otherSide = 0
+    if LEFT == side then
+        otherSide = RIGHT
+        targetX = MapObject.heroPosX - 1
+    elseif RIGHT == side then
+        otherSide = LEFT
+        targetX = MapObject.heroPosX + 1
+    elseif UP == side then
+        otherSide = DOWN
+        targetY = MapObject.heroPosY + 1
+    elseif DOWN == side then
+        otherSide = UP
+        targetY = MapObject.heroPosY - 1
     end
+
+    if 0 == otherSide or nil == curMapTile or targetX < 1 or targetY < 1 or targetX > MapObject.rowCount or targetY > MapObject.lineCount then
+        return false
+    end
+
+    targetMapTile = MapObject.getMapTile(targetX, targetY)
+
     -- 调用Block功能检查是否可以移动
---    if Block.CanMoveTo(curMapTile, side) then
---    end
-    
+    if Services.Static_BlockObject.HasDirection(curMapTile, side) and (nill == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) then
+        Services.Static_HeroObject.Node:setPosition(MapObject.tilePosToScreenPos(targetX, targetY))
+        return true
+    end
+
+    return false
 end
 
 
@@ -116,8 +140,7 @@ function MapObject.initMapData()
     MapObject.doorPosY = 8
     generateTreasurePosition()
 
-    local temp = Services.Static_BlockObject.CreateStartBlock()
-    MapObject.SetMapTile(temp, MapObject.heroPosX, MapObject.heroPosY)
+    MapObject.SetMapTile(Services.Static_BlockObject.CreateStartBlock(), MapObject.heroPosX, MapObject.heroPosY)
     if nil == MapObject.treasureNode then
         MapObject.treasureNode = Services.Static_BlockObject.CreateTreasureBlock()
     end
@@ -147,6 +170,7 @@ function MapObject.start()
     startBlock.Node:setPosition(scrX, scrY)
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
+    MapObject.MoveTo(RIGHT)
 end
 
 
