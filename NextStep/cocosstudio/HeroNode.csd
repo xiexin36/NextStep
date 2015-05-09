@@ -71,15 +71,15 @@
       <ObjectData Name="Node" Tag="13" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="Sprite_4" ActionTag="-358938894" Tag="17" IconVisible="False" LeftMargin="-16.0000" RightMargin="-16.0000" TopMargin="-25.0000" BottomMargin="-25.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="HeroSprite" ActionTag="-358938894" Tag="17" IconVisible="False" LeftMargin="-16.0000" RightMargin="-16.0000" TopMargin="-25.0000" BottomMargin="-25.0000" ctype="SpriteObjectData">
             <Size X="32.0000" Y="50.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
+            <AnchorPoint ScaleX="0.5000" />
+            <Position Y="-25.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="Image/Charactor/moveUp3.png" Plist="" />
+            <FileData Type="Normal" Path="Image/Charactor/moveDown1.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
