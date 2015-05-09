@@ -1,8 +1,10 @@
 local StartLayer = {}
 
+StartLayer.LoadResult = nil
 
-local function buttonStartCallback()
+local function buttonStartCallback()    
     Services.showMainScene()
+    Services.Static_TopRoot:removeChild(StartLayer.LoadResult.root, true)
 end
 
 local function callBackProvider(luaFileName, node, callbackName)

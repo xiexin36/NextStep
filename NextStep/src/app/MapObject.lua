@@ -96,23 +96,20 @@ function MapObject.getMapTile(pos)
     return mapData[(pos.x - 1) * MapObject.mapSize.height + pos.y]
 end
 
-local function testcallback()
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-end
-
 function MoveToFinished()
     print("Move to animation finished")
+
+    Services.showSuccess()
     if MapObject.heroPos.x == MapObject.treasurePos.x and MapObject.heroPos.y == MapObject.treasurePos.y then
         local tBox = MapObject.treasureNode.Node:getChildByTag(798)
         if nil ~= tBox then
             print("Reach the treasure!!!")
-            MapObject.treasureNode.Node:removeChild(tBox, true)
-            MapObject.OpenNode:setVisible(true)
-            MapObject.OpenAnimation:setFrameEventCallFunc(testcallback)
-            MapObject.OpenAnimation:gotoFrameAndPlay(0,false)
+            local ttt = require("src/app/OpenLayer")
+            ttt.create()
         end
     elseif MapObject.heroPos.x == MapObject.doorPos.x and MapObject.heroPos.y == MapObject.doorPos.y then
         print("Reach exit door, WIN!!!")
+        Services.showSuccess()
     end
     Services.Static_HeroObject.MoveHeroEndCallback()
 end

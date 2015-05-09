@@ -1,23 +1,24 @@
 local OpenLayer = {}
 
 
-local function buttonStartCallback()
-    Services.showMainScene()
+local function ContinueCallback()
+    Services.Static_MainScene.root:removeChild(OpenLayer.Node, true)
 end
 
 local function callBackProvider(luaFileName, node, callbackName)
-    if node:getName() == "Button_Start" then     
-        return buttonStartCallback
+    if node:getName() == "ButtonContinue" then     
+        return ContinueCallback
     end
 end
 
-function StartLayer.create()
-
-    local startLayerFile = require("res/Start.lua")
+function OpenLayer.create()
+    local startLayerFile = require("res/OpenAniLayer.lua")
     local result = startLayerFile.create(callBackProvider)
-    StartLayer.LoadResult = result
-
+    Services.Static_MainScene.root:addChild(result.root)
+    result.root:setLocalZOrder(300)
+    OpenLayer.Node = result.root
+    result["OpenAnimation"].animation:gotoFrameAndPlay(0,false)
     return result.root
 end
 
-return StartLayer
+return OpenLayer
