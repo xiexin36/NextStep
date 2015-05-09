@@ -101,6 +101,8 @@ function MapObject.MoveTo(side)
     -- 调用Block功能检查是否可以移动
     if Services.Static_BlockObject.HasDirection(curMapTile, side) and (nill == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) then
         Services.Static_HeroObject.Node:setPosition(MapObject.tilePosToScreenPos(targetX, targetY))
+        MapObject.heroPosX = targetX
+        MapObject.heroPosY = targetY
         return true
     end
 
@@ -170,7 +172,6 @@ function MapObject.start()
     startBlock.Node:setPosition(scrX, scrY)
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePosX, MapObject.treasurePosY))
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPosX, MapObject.doorPosY))
-    MapObject.MoveTo(RIGHT)
 end
 
 

@@ -63,22 +63,26 @@ end
 
 function ButtonTopCallback()
     print("Up")
-    HeroObject.Animation:play("Up",false)   
+    HeroObject.Animation:play("Up",false) 
+    Services.Static_MapObject.MoveTo(UP)  
 end
 
 function ButtonLeftCallback()
     print("Left") 
     HeroObject.Animation:play("Left",false)  
+    Services.Static_MapObject.MoveTo(LEFT)
 end
 
 function ButtonDownCallback()
     print("Down") 
-    HeroObject.Animation:play("Down",false)  
+    HeroObject.Animation:play("Down",false)
+    Services.Static_MapObject.MoveTo(DOWN)  
 end
 
 function ButtonRightCallback()
     print("Right") 
-    HeroObject.Animation:play("Right",false)  
+    HeroObject.Animation:play("Right",false) 
+    Services.Static_MapObject.MoveTo(RIGHT) 
 end
 -- JoyStick
 
