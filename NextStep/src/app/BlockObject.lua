@@ -5,8 +5,9 @@ RIGHT = 5
 DOWN  = 7
 
 BLOCKTYPE_NORMAL = 100
-BLOCKTYPE_EXIT = 101
-BLOCKTYPE_TREASURE = 101
+BLOCKTYPE_START = 101
+BLOCKTYPE_EXIT = 102
+BLOCKTYPE_TREASURE = 103
 
 BlockMask={
 Block01 = LEFT,
@@ -48,6 +49,10 @@ function blockObject.CreateNormalBlock()
     return CreatBlock(BlockMask[key], BLOCKTYPE_NORMAL, node)
 end
 
+function blockObject.CreateStartBlock()
+    CreatBlock(0, BLOCKTYPE_START, cc.Sprite:create('Image/Block/Block15.png'))
+end
+
 function blockObject.CreateExitBlock()
     return CreatBlock(0, BLOCKTYPE_EXIT, cc.Sprite:create('Image/Block/ExitBlock.png'))
 end
@@ -61,8 +66,26 @@ return blockObject
 --[[
 -- some test codes
 
-function blockObject.CreateTestNode()
-    return cc.Sprite:create('Image/Block/Block01.png')
+local function AddImages(rootNode)
+    local blockManager = require "src/app/BlockObject.lua"
+    for i = 1, 8 do
+        for j = 1, 8 do
+            local block = blockManager.CreateNormalBlock()
+            block.Node:setPosition(cc.p((i-1) * 80 + 40, (j-1) * 80 + 40))
+            rootNode:addChild(block.Node)
+        end
+        
+    end
 end
+
+--local heroObject = require('res/HeroNode.lua').create()
+--local heroNode = heroObject.root
+--heroNode:setPosition(cc.p(120, 120))
+--heroNode:runAction(heroObject.animation)
+----heroObject.animation:gotoFrameAndPlay(40, 55, true)
+--heroObject.animation:play("Right", true)
+--heroNode:runAction(cc.MoveTo:create(0.5, cc.p(520, 120)))
+--self.resourceNode_:addChild(heroNode)
+--AddImages(self.resourceNode_)
 
 ]]
