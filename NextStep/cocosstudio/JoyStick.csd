@@ -6,63 +6,59 @@
       <ObjectData Name="Node" Tag="8" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="ButtonUp" ActionTag="-1628025306" CallBackType="Touch" CallBackName="ButtonUpCallback" Tag="9" Rotation="270.0000" RotationSkewX="270.0000" RotationSkewY="270.0000" IconVisible="False" LeftMargin="-36.4877" RightMargin="-33.5123" TopMargin="-86.4191" BottomMargin="16.4191" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonUp" ActionTag="-1628025306" CallBackType="Touch" CallBackName="ButtonUpCallback" Tag="9" IconVisible="False" LeftMargin="-33.1220" RightMargin="-36.8780" TopMargin="-95.4191" BottomMargin="25.4191" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="70.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-1.4877" Y="51.4191" />
+            <Position X="1.8780" Y="60.4191" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Normal" Path="Image/Arrow/Disabled.png" Plist="" />
-            <PressedFileData Type="Normal" Path="Image/Arrow/Pressed.png" Plist="" />
-            <NormalFileData Type="Normal" Path="Image/Arrow/Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="Image/Arrow/UpPressed.png" Plist="" />
+            <NormalFileData Type="Normal" Path="Image/Arrow/UpNormal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ButtonRight" ActionTag="1627932272" CallBackType="Touch" CallBackName="ButtonRightCallback" Tag="10" IconVisible="False" LeftMargin="12.5118" RightMargin="-82.5118" TopMargin="-40.4225" BottomMargin="-29.5775" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonRight" ActionTag="1627932272" CallBackType="Touch" CallBackName="ButtonRightCallback" Tag="10" IconVisible="False" LeftMargin="27.5115" RightMargin="-97.5115" TopMargin="-28.4224" BottomMargin="-41.5776" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="70.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="47.5118" Y="5.4225" />
+            <Position X="62.5115" Y="-6.5776" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Normal" Path="Image/Arrow/Disabled.png" Plist="" />
-            <PressedFileData Type="Normal" Path="Image/Arrow/Pressed.png" Plist="" />
-            <NormalFileData Type="Normal" Path="Image/Arrow/Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="Image/Arrow/RightPressed.png" Plist="" />
+            <NormalFileData Type="Normal" Path="Image/Arrow/RightNormal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ButtonLeft" ActionTag="966662726" CallBackType="Touch" CallBackName="ButtonLeftCallback" Tag="11" Rotation="180.0000" RotationSkewX="180.0000" RotationSkewY="180.0000" IconVisible="False" LeftMargin="-83.4832" RightMargin="13.4832" TopMargin="-37.4223" BottomMargin="-32.5777" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonLeft" ActionTag="966662726" CallBackType="Touch" CallBackName="ButtonLeftCallback" Tag="11" IconVisible="False" LeftMargin="-93.4830" RightMargin="23.4830" TopMargin="-30.4223" BottomMargin="-39.5777" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="70.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-48.4832" Y="2.4223" />
+            <Position X="-58.4830" Y="-4.5777" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Normal" Path="Image/Arrow/Disabled.png" Plist="" />
-            <PressedFileData Type="Normal" Path="Image/Arrow/Pressed.png" Plist="" />
-            <NormalFileData Type="Normal" Path="Image/Arrow/Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="Image/Arrow/LeftPressed.png" Plist="" />
+            <NormalFileData Type="Normal" Path="Image/Arrow/LeftNormal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ButtonDown" ActionTag="1743439945" CallBackType="Touch" CallBackName="ButtonDownCallback" Tag="12" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" LeftMargin="-33.4831" RightMargin="-36.5169" TopMargin="7.5786" BottomMargin="-77.5786" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonDown" ActionTag="1743439945" CallBackType="Touch" CallBackName="ButtonDownCallback" Tag="12" IconVisible="False" LeftMargin="-33.4832" RightMargin="-36.5168" TopMargin="32.5788" BottomMargin="-102.5788" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="40" Scale9Height="48" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="70.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1.5169" Y="-42.5786" />
+            <Position X="1.5168" Y="-67.5788" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Normal" Path="Image/Arrow/Disabled.png" Plist="" />
-            <PressedFileData Type="Normal" Path="Image/Arrow/Pressed.png" Plist="" />
-            <NormalFileData Type="Normal" Path="Image/Arrow/Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="Image/Arrow/DownPressed.png" Plist="" />
+            <NormalFileData Type="Normal" Path="Image/Arrow/DownNormal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
