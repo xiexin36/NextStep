@@ -114,7 +114,7 @@ function MapObject.tilePosToScreenPos(pos)
     end
 
     local xPos = (x - 1) * MapObject.tileSize.width + MapObject.tileSize.width / 2
-    local yPos = (x - 1) * MapObject.tileSize.height + MapObject.tileSize.height / 2
+    local yPos = (y - 1) * MapObject.tileSize.height + MapObject.tileSize.height / 2
     return xPos, yPos
 end
 
