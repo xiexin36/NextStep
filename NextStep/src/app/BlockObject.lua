@@ -53,7 +53,7 @@ function blockObject.CreateNormalBlock()
 end
 
 function blockObject.CreateStartBlock()
-    return CreatBlock(0, BLOCKTYPE_START, cc.Sprite:create('Image/Block/Block15.png'))
+    return CreatBlock(0, BLOCKTYPE_START, cc.Sprite:create('Image/Block/Block06.png'))
 end
 
 function blockObject.CreateExitBlock()
