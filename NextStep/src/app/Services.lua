@@ -25,10 +25,16 @@ end
 
 
 function Services.showMainScene()
-
     Services.Static_TopRoot:removeAllChildren()
 	local mainScene = Services.getMainScene()
 	Services.Static_TopRoot:addChild(mainScene)
+end
+
+function Services.showSuccess()
+    Services.Static_TopRoot:removeAllChildren()
+    local successLayer = Services.getSuccessLayer()
+    Services.Static_TopRoot:addChild(successLayer)
+    
 end
 
 function Services.getStartLayer()
@@ -50,6 +56,8 @@ function Services.getMainScene()
     local mainSceneFile = require "res/MainScene.lua"
     
     local result = mainSceneFile.create(Services.Static_HeroObject.eventCallback)
+    --保留主场景
+    result.root:retain()
     
     Services.Static_MainScene = result
     result.root:addChild(Services.Static_HeroObject.Node)
@@ -58,6 +66,17 @@ function Services.getMainScene()
     Services.Static_MapObject.start()
 
     return result.root
+end
+
+function Services.getSuccessLayer()
+    if Services.Static_SuccessLayer ~=nil then
+    	return Services.Static_SuccessLayer.LoadResult.root
+    end
+    local successLayerFile = require("app.SuccessLayer")
+    Services.Static_SuccessLayer = successLayerFile
+
+    local root = successLayerFile.create()    
+    return root
 end
 
 -- Init ramdomize seed
