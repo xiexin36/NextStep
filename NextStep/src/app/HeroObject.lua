@@ -6,7 +6,7 @@ HeroObject.Block = nil
 
 local function GenerateNewBlcok()
     local block = Services.Static_BlockObject.CreateNormalBlock()
-    block.Node:setPosition(890, 400)
+    block.Node:setPosition(895, 400)
     block.Node:setLocalZOrder(10)
     block.Node:retain()
     Services.Static_MainScene.root:addChild(block.Node)
@@ -99,6 +99,7 @@ local function fillBlockButtonList()
 end
 
 local function resetButtonCallback(sender)
+
     local index = ListView_resetBtn:getIndex(sender)
     ListView_resetBtn:removeItem(index)
     fillBlockButtonList()
@@ -112,7 +113,8 @@ end
 
 -- 初始化 重置按钮
 local function fillResetButtonList()
-    ListView_resetBtn = Services.Static_MainScene["ListView_resetBtn"]
+
+    ListView_resetBtn:removeAllItems()
     local button = nil
     for i = 1, 3 do
         button = ccui.Button:create("Image/Button/ResetBlockNormal.png","Image/Button/ResetBlockPressed.png")
@@ -128,7 +130,7 @@ function HeroObject.start()
     HeroObject.LastBlockObject = GetCurrentBlock()
     ListView_Block = Services.Static_MainScene["ListView_Block"]
     fillBlockButtonList()
-    
+    ListView_resetBtn = Services.Static_MainScene["ListView_resetBtn"]
     fillResetButtonList()    
     
     GenerateNewBlcok()           

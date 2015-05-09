@@ -3,7 +3,7 @@
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
-      <ObjectData Name="Scene" Visible="False" CallBackType="Touch" ctype="GameNodeObjectData">
+      <ObjectData Name="Scene" CallBackType="Touch" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
           <AbstractNodeData Name="Panel_Right" ActionTag="1424252642" Tag="5" IconVisible="False" LeftMargin="640.0000" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="320" Scale9Height="640" ctype="PanelObjectData">
@@ -42,14 +42,14 @@
               <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="14.9127" RightMargin="11.0873" TopMargin="297.4747" BottomMargin="235.5253" ctype="ImageViewObjectData">
                 <Size X="294.0000" Y="107.0000" />
                 <Children>
-                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="14.0000" TopMargin="-5.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
-                    <Size X="265.0000" Y="110.0000" />
+                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="14.0000" TopMargin="5.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                    <Size X="265.0000" Y="100.0000" />
                     <AnchorPoint />
                     <Position X="15.0000" Y="2.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.0510" Y="0.0187" />
-                    <PreSize X="0.8833" Y="0.9167" />
+                    <PreSize X="0.9014" Y="0.9346" />
                     <SingleColor A="255" R="150" G="150" B="255" />
                     <FirstColor A="255" R="150" G="150" B="255" />
                     <EndColor A="255" R="255" G="255" B="255" />
