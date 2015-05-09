@@ -42,13 +42,13 @@
               <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="13.7433" RightMargin="12.2567" TopMargin="188.0642" BottomMargin="235.9358" ctype="ImageViewObjectData">
                 <Size X="294.0000" Y="216.0000" />
                 <Children>
-                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="20.0000" TopMargin="8.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="14.0000" TopMargin="104.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                     <Size X="265.0000" Y="110.0000" />
                     <AnchorPoint />
                     <Position X="15.0000" Y="2.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.0500" Y="0.0167" />
+                    <PrePosition X="0.0510" Y="0.0093" />
                     <PreSize X="0.8833" Y="0.9167" />
                     <SingleColor A="255" R="150" G="150" B="255" />
                     <FirstColor A="255" R="150" G="150" B="255" />
@@ -63,6 +63,51 @@
                 <PrePosition X="0.5023" Y="0.5374" />
                 <PreSize X="0.9187" Y="0.3375" />
                 <FileData Type="Normal" Path="Image/Other/Frames.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_ResetBlock1" ActionTag="-688314510" Tag="44" IconVisible="False" LeftMargin="28.3681" RightMargin="243.6319" TopMargin="239.8407" BottomMargin="352.1593" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+                <Size X="48.0000" Y="48.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="52.3681" Y="376.1593" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.1637" Y="0.5877" />
+                <PreSize X="0.1500" Y="0.0750" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="Image/Button/ResetBlockDisabled.png" Plist="" />
+                <PressedFileData Type="Normal" Path="Image/Button/ResetBlockPressed.png" Plist="" />
+                <NormalFileData Type="Normal" Path="Image/Button/ResetBlockNormal.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="255" G="127" B="80" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_ResetBlock2" ActionTag="739993428" Tag="45" IconVisible="False" LeftMargin="82.4375" RightMargin="189.5625" TopMargin="239.8407" BottomMargin="352.1593" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="18" Scale9Height="26" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+                <Size X="48.0000" Y="48.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="106.4375" Y="376.1593" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.3326" Y="0.5877" />
+                <PreSize X="0.1500" Y="0.0750" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="Image/Button/ResetBlockDisabled.png" Plist="" />
+                <PressedFileData Type="Normal" Path="Image/Button/ResetBlockPressed.png" Plist="" />
+                <NormalFileData Type="Normal" Path="Image/Button/ResetBlockNormal.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="255" G="127" B="80" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_ResetBlock3" ActionTag="1838960816" Tag="46" IconVisible="False" LeftMargin="136.5070" RightMargin="135.4930" TopMargin="239.8407" BottomMargin="352.1593" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="18" Scale9Height="26" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+                <Size X="48.0000" Y="48.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="160.5070" Y="376.1593" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5016" Y="0.5877" />
+                <PreSize X="0.1500" Y="0.0750" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="Image/Button/ResetBlockDisabled.png" Plist="" />
+                <PressedFileData Type="Normal" Path="Image/Button/ResetBlockPressed.png" Plist="" />
+                <NormalFileData Type="Normal" Path="Image/Button/ResetBlockNormal.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
