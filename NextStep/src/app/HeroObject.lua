@@ -23,6 +23,7 @@ end
 function addButton(index)
     
     local block = Services.Static_BlockObject.CreateNormalBlock()
+    block.Node:retain()
     local button = ccui.Button:create(block.FilePath)
     button.BlockObject = block
       
@@ -34,14 +35,22 @@ end
 function blockButtonCallback(sender)
     --sender:addTouchEventListener(nil)
     local index=ListView_Block:getIndex(sender)
-    local block = sender.Block
-    --Services.Map
+    local block = sender.BlockObject
+    local x = sender:getPositionX()
+    local y = sender:getPositionY()
+    local worldPosition = sender:convertToWorldSpace({x,y})
+    local size = block.Node:getContentSize()
+    x = worldPosition.x+size.width/2
+    y = worldPosition.y + size.height/2
+    block.Node:setPosition(x, y)
+    block.Node:setLocalZOrder(10)
+    --block.Node:setColor({100,100,100})  
+    Services.Static_MainScene.root:addChild(block.Node)
+    block.Node:release()
     
     ListView_Block:removeItem(index)
-    
-    
-    
-    addButton(index)
+      
+    --addButton(index)
 end
 
 -- JoyStick
