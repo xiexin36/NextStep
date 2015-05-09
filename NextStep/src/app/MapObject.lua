@@ -98,7 +98,7 @@ function MoveToFinished()
         local tBox = MapObject.treasureNode.Node:getChildByTag(798)
         if nil ~= tBox then
             print("Reach the treasure!!!")
---            MapObject.treasurePos.Node:removeChild(tBox, true)
+            MapObject.treasureNode.Node:removeChild(tBox, true)
         end
     elseif MapObject.heroPos.x == MapObject.doorPos.x and MapObject.heroPos.y == MapObject.doorPos.y then
         print("Reach exit door, WIN!!!")
@@ -266,7 +266,15 @@ function MapObject.restart()
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPos)
     Services.Static_HeroObject.Node:setPosition(scrX, scrY + adjustYPos)
     startBlock.Node:setPosition(scrX, scrY)
+
+    local tBox = MapObject.treasureNode.Node:getChildByTag(798)
+    if nil == tBox then
+        Services.Static_MainScene.root:removeChild(MapObject.treasureNode.Node, true)
+        MapObject.treasureNode = Services.Static_BlockObject.CreateTreasureBlock()
+        Services.Static_MainScene.root:addChild(MapObject.treasureNode.Node)
+    end
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePos))
+
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPos))
     MapObject.SetMapTile(MapObject.treasureNode, MapObject.treasurePos, true)
     MapObject.SetMapTile(MapObject.outDoorNode, MapObject.doorPos, true)
