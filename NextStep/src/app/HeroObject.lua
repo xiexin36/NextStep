@@ -3,6 +3,16 @@ local HeroObject = {}
 --上次站立的有效位置
 HeroObject.LastBlockObject = nil
 HeroObject.LastDirection = nil
+HeroObject.Block = nil
+
+local function GenerateNewBlcok()
+    local block = Services.Static_BlockObject.CreateNormalBlock()
+    block.Node:setPosition(920, 440)
+    block.Node:setLocalZOrder(10)
+    block.Node:retain()
+    HeroObject.Block = block
+    Services.Static_MainScene.root:addChild(block.Node)
+end
 
 function HeroObject.init()
     local heroNodeFile = require "res/HeroNode.lua"
@@ -11,7 +21,6 @@ function HeroObject.init()
     HeroObject.Node = result.root
     HeroObject.Node:setLocalZOrder(100)
     HeroObject.Animation = result.animation
-    
 end
 
 local ListView_Block
@@ -34,7 +43,8 @@ local function blockButtonCallback(sender)
     y = worldPosition.y + size.height/2
     block.Node:setPosition(x, y)
     block.Node:setLocalZOrder(10)
-    --block.Node:setColor({100,100,100})  
+    -- before add node in block, remove it first to avoid multi-times add.
+    Services.Static_MainScene.root:removeChild(block.Node)
     Services.Static_MainScene.root:addChild(block.Node)
     block.Node:release()
 
@@ -44,10 +54,24 @@ local function blockButtonCallback(sender)
 
     ListView_Block:removeItem(index)
 
-    --addButton(index)
+    local sequence = cc.Sequence:create(cc.MoveTo:create(0.2, cc.p(x, y)), nil)
+    HeroObject.Block.Node:runAction(sequence)
 end
 
-local function addButton(index)
+local function addButtonWithBlock(block)
+    local button = ccui.Button:create(block.FilePath)
+    button.BlockObject = block
+    local sprite = cc.Sprite:create("Image/Block/HighlightBlock.png")
+    sprite:setAnchorPoint(0,0)
+    sprite:setPosition(-4,-5)
+    button.HighlightSprite = sprite
+    button:addChild(sprite)
+
+    ListView_Block:pushBackCustomItem(button)
+    button:addTouchEventListener(blockButtonCallback)
+end
+
+local function addButton()
 
     local block = Services.Static_BlockObject.CreateNormalBlock()
     block.Node:retain()
@@ -76,6 +100,7 @@ function HeroObject.start()
     addButton(2)
     
     HeroObject.DisableBlocksList()
+    GenerateNewBlcok()
 end
 
 -- JoyStick
@@ -203,7 +228,9 @@ end
 
 --设置格子后, 生成新的格子
 function HeroObject.TileMapSettedCallback()
-    addButton()
+    --addButton()
+    addButtonWithBlock(HeroObject.Block)
+    GenerateNewBlcok()
     HeroObject.DisableBlocksList()
 end
 
