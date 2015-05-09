@@ -93,7 +93,12 @@ function MapObject.getMapTile(pos)
 end
 
 function MoveToFinished()
-    print("Move to animation finished!")
+    print("Move to animation finished")
+    if MapObject.heroPos.x == MapObject.treasurePos.x and MapObject.heroPos.y == MapObject.treasurePos.y then
+        print("Reach the treasure!!!")
+    elseif MapObject.heroPos.x == MapObject.doorPos.x and MapObject.heroPos.y == MapObject.doorPos.y then
+        print("Reach exit door, WIN!!!")
+    end
 end
 
 function MapObject.MoveTo(side)
@@ -102,7 +107,6 @@ function MapObject.MoveTo(side)
     local targetX = MapObject.heroPos.x
     local targetY = MapObject.heroPos.y
 
-    hideAllHilightBlock()
 
     local otherSide = 0
     if LEFT == side then
@@ -122,13 +126,14 @@ function MapObject.MoveTo(side)
     targetMapTile = MapObject.getMapTile(cc.p(targetX, targetY))
 
     if 0 == otherSide or (nil == curMapTile and nil == targetMapTile) or targetX < 1 or targetY < 1 or targetX > MapObject.mapSize.width or targetY > MapObject.mapSize.height then
-        MapObject.checkSurroundAndHighLight()
         return false
     end
 
     -- 调用Block功能检查是否可以移动
     if (nil == curMapTile and Services.Static_BlockObject.HasDirection(targetMapTile, otherSide)) or 
         (Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
+
+        hideAllHilightBlock()
 
         local heroNode = Services.Static_HeroObject.Node
         local heroScrX, heroScrY = MapObject.tilePosToScreenPos(cc.p(targetX, targetY))
@@ -139,10 +144,10 @@ function MapObject.MoveTo(side)
 
         MapObject.heroPos = cc.p(targetX, targetY)
         MapObject.checkSurroundAndHighLight()
+
         return true
     end
 
-    MapObject.checkSurroundAndHighLight()
     return false
 end
 

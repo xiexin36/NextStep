@@ -35,8 +35,19 @@ Block15 = LEFT * UP * RIGHT * DOWN,
 }
 local function GenerateRandomType()
     local value = math.random(1, 100)
-    if value <= 8 then
+    if value <= 12 then
+        return math.random(1, 4)
     end
+    if value <= 40 then
+        return math.random(5, 8)
+    end
+    if value <= 60 then
+        return math.random(9, 10)
+    end
+    if value <= 92 then
+        return math.random(11, 14)
+    end
+    return 15
 end
 
 local blockObject = {}
@@ -59,7 +70,8 @@ local function CreatBlock(blockMask, blockType, node)
 end
 
 function blockObject.CreateNormalBlock()
-    local blockMask = math.random(1, 15)
+--    local blockMask = math.random(1, 15)
+    local blockMask = GenerateRandomType()
     local key = 'Block' .. string.format("%02d", blockMask)
     local filePath = 'Image/Block/' .. key ..'.png'
     local node = cc.Sprite:create(filePath)
