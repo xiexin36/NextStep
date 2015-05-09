@@ -48,6 +48,10 @@ function blockButtonCallback(sender)
     Services.Static_MainScene.root:addChild(block.Node)
     block.Node:release()
     
+    local heroPos = Services.Static_MapObject.heroPos
+    --ÃÌº”µΩMap÷–
+    Services.Static_MapObject.SetMapTile(block, heroPos)
+    
     ListView_Block:removeItem(index)
       
     --addButton(index)
