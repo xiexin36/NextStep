@@ -72,6 +72,17 @@
             <FileData Type="Normal" Path="Image/Block/HighlightBlock.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Block15_1" ActionTag="1058681052" Tag="8" IconVisible="False" LeftMargin="-195.5000" RightMargin="115.5000" TopMargin="106.0000" BottomMargin="-186.0000" ctype="SpriteObjectData">
+            <Size X="80.0000" Y="80.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-155.5000" Y="-146.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize />
+            <FileData Type="Normal" Path="Image/Block/Block15.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

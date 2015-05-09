@@ -11,7 +11,7 @@ function Services.init()
 	heroObjectFile.init()
 	Services.Static_HeroObject = heroObjectFile
 
-    local blockObj = require("src/app/BlockManager")
+    local blockObj = require("src/app/BlockObject")
     Services.Static_BlockObject = blockObj
 
     local mapObj = require("src/app/MapObject")
@@ -36,5 +36,7 @@ function Services.getMainScene()
     return result.root
 end
 
+-- Init ramdomize seed
+math.randomseed(os.time())
 
 return Services 
