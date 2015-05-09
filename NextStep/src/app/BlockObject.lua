@@ -26,10 +26,10 @@ Block14 = LEFT * UP * DOWN,
 Block15 = LEFT * UP * RIGHT * DOWN,
 }
 
-local blockManager = {}
+local blockObject = {}
 
-function blockManager.IsMatch(direction, blockMask)
-    local remainder = math.fmod(blockMask, direction)
+function blockObject.HasDirection(block, direction)
+    local remainder = math.fmod(block.Mask, direction)
     return remainder == 0
 end
 
@@ -41,27 +41,27 @@ local function CreatBlock(blockMask, blockType, node)
     return block
 end
 
-function blockManager.CreateNormalBlock()
+function blockObject.CreateNormalBlock()
     local blockMask = math.random(1, 15)
     local key = 'Block' .. string.format("%02d.png", blockMask)
     local node = cc.Sprite:create('Image/Block/' .. key)
-    return CreatBlock(blockMask, BLOCKTYPE_NORMAL, node)
+    return CreatBlock(BlockMask[key], BLOCKTYPE_NORMAL, node)
 end
 
-function blockManager.CreateExitBlock()
+function blockObject.CreateExitBlock()
     return CreatBlock(0, BLOCKTYPE_EXIT, cc.Sprite:create('Image/Block/ExitBlock.png'))
 end
 
-function blockManager.CreateTreasureBlock()
+function blockObject.CreateTreasureBlock()
     return CreatBlock(0, BLOCKTYPE_TREASURE, cc.Sprite:create('Image/Other/Treasure.png'))
 end
 
-return blockManager
+return blockObject
 
 --[[
 -- some test codes
 
-function blockManager.CreateTestNode()
+function blockObject.CreateTestNode()
     return cc.Sprite:create('Image/Block/Block01.png')
 end
 
