@@ -53,6 +53,12 @@
             <Image Name="MainSceneRightPanel.jpg" />
           </Folder>
           <Image Name="Map.png" />
+          <Folder Name="Button">
+            <Image Name="QuitNormal.png" />
+            <Image Name="QuitPressed.png" />
+            <Image Name="RestartNormal.png" />
+            <Image Name="RestartPressed.png" />
+          </Folder>
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />
         <Project Name="JoyStick.csd" Type="Node" />
