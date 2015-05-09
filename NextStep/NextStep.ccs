@@ -29,6 +29,8 @@
             <Image Name="ExitBlock.png" />
             <Image Name="HighlightBlock.png" />
             <Image Name="SelectFrame.png" />
+            <Image Name="Block Back.png" />
+            <Image Name="Block Treasure.png" />
           </Folder>
           <Folder Name="Charactor">
             <Image Name="moveDown1.png" />

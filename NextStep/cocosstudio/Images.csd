@@ -83,6 +83,28 @@
             <FileData Type="Normal" Path="Image/Block/Block15.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_1" ActionTag="-1602006208" Tag="25" IconVisible="False" LeftMargin="-547.5000" RightMargin="467.5000" TopMargin="184.0000" BottomMargin="-264.0000" ctype="SpriteObjectData">
+            <Size X="80.0000" Y="80.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-507.5000" Y="-224.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize />
+            <FileData Type="Normal" Path="Image/Block/Block Treasure.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_2" ActionTag="-735724092" Tag="26" IconVisible="False" LeftMargin="-555.5000" RightMargin="475.5000" TopMargin="26.0000" BottomMargin="-106.0000" ctype="SpriteObjectData">
+            <Size X="80.0000" Y="80.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-515.5000" Y="-66.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize />
+            <FileData Type="Normal" Path="Image/Block/Block Back.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

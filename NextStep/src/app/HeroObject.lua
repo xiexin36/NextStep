@@ -133,7 +133,7 @@ end
 
 local function ButtonRestart()
     Services.Static_MapObject.initMapData()
-    Services.Static_MapObject.start()
+    Services.Static_MapObject.restart()
     HeroObject.start()
 end
 
