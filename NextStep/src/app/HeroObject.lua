@@ -56,8 +56,8 @@ local function addButton(index)
     local sprite = cc.Sprite:create("Image/Block/HighlightBlock.png")
     sprite:setAnchorPoint(0,0)
     sprite:setPosition(-4,-5)
-    button.Highlight = sprite
-    button:addChild(button.Highlight)
+    button.HighlightSprite = sprite
+    button:addChild(sprite)
 
     ListView_Block:insertCustomItem(button , index)
     button:addTouchEventListener(blockButtonCallback)
@@ -67,11 +67,20 @@ end
 function HeroObject.start()
     --初始化小人位置
     HeroObject.LastBlockObject = GetCurrentBlock()
-  
+    
+    
     ListView_Block = Services.Static_MainScene["ListView_Block"]
     addButton(0)
     addButton(1)
     addButton(2)
+    
+    --初始格子都为空
+    local items = ListView_Block:getItems()
+    for key, var in pairs(items) do
+        local button = var
+        HeroObject.SetButtonState(button,false)
+    end
+    --HeroObject.UpdateBlocksList()
 end
 
 -- JoyStick
@@ -134,21 +143,37 @@ function HeroObject.MoveHero(direction, animation)
     
     local currentBlock = GetCurrentBlock()
     
-    if currentBlock ~= nil then
-    	HeroObject.LastBlockObject = currentBlock
+    --如果是空格子,则更新可用块
+    if currentBlock == nil then 	
     	HeroObject.LastDirection = direction
     	HeroObject.UpdateBlocksList()
+    else
+        HeroObject.LastBlockObject = currentBlock
     end
     --先移动小人,然后判断小人的位置是否有效   
 end
 
 --更新当前可以使用的格子
-function HeroObject.UpdateBlocksList()
+function HeroObject.UpdateBlocksList()	
+	local items = ListView_Block:getItems()
 	
+    for key, var in pairs(items) do
+		local button = var
+		
+        local blockObject = button.BlockObject
+        local isEnable = Services.Static_BlockObject.HasDirection(HeroObject.LastBlockObject, HeroObject.LastDirection)
+        HeroObject.SetButtonState(button, isEnable)
+	end
+
+end
+
+function HeroObject.SetButtonState(button, isEnable)
+    button:setEnabled(isEnable)
+    button.HighlightSprite:setVisible(isEnable)
 end
 
 function HeroObject.TileMapSettedCallback()
-
+    
 end
 
 return HeroObject
