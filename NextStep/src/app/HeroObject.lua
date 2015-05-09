@@ -24,6 +24,7 @@ local number = 1
 
 function addButton(index)
     local button = ccui.Button:create(imageList[number])
+    --button:set
     number = number+1
     if number>3 then
         number=1
@@ -41,7 +42,7 @@ function blockButtonCallback(sender)
     addButton(index)
 end
 
-
+-- JoyStick
 function HeroObject.JoyStickCallback(luaFileName, node, callbackName)
 	if node:getName()== "ButtonTop" then	    
         return ButtonTopCallback
@@ -62,22 +63,27 @@ end
 
 function ButtonTopCallback()
     print("Up")
-    HeroObject.Animation:play("Up",false)   
+    HeroObject.Animation:play("Up",false) 
+    Services.Static_MapObject.MoveTo(UP)  
 end
 
 function ButtonLeftCallback()
     print("Left") 
     HeroObject.Animation:play("Left",false)  
+    Services.Static_MapObject.MoveTo(LEFT)
 end
 
 function ButtonDownCallback()
     print("Down") 
-    HeroObject.Animation:play("Down",false)  
+    HeroObject.Animation:play("Down",false)
+    Services.Static_MapObject.MoveTo(DOWN)  
 end
 
 function ButtonRightCallback()
     print("Right") 
-    HeroObject.Animation:play("Right",false)  
+    HeroObject.Animation:play("Right",false) 
+    Services.Static_MapObject.MoveTo(RIGHT) 
 end
+-- JoyStick
 
 return HeroObject

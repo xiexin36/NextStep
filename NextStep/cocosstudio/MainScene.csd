@@ -42,14 +42,14 @@
               <AbstractNodeData Name="Image_4" ActionTag="1555556799" Tag="41" IconVisible="False" LeftMargin="16.0000" RightMargin="14.0000" TopMargin="222.0000" BottomMargin="308.0000" ctype="ImageViewObjectData">
                 <Size X="290.0000" Y="110.0000" />
                 <Children>
-                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="-15.0000" TouchEnable="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
-                    <Size X="290.0000" Y="110.0000" />
+                  <AbstractNodeData Name="ListView_Block" ActionTag="1722684664" Tag="16" IconVisible="False" LeftMargin="15.0000" RightMargin="15.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="290" Scale9Height="110" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                    <Size X="260.0000" Y="110.0000" />
                     <AnchorPoint />
                     <Position X="15.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.0517" />
-                    <PreSize X="0.9063" Y="0.1719" />
+                    <PreSize X="0.8966" Y="1.0000" />
                     <SingleColor A="255" R="150" G="150" B="255" />
                     <FirstColor A="255" R="150" G="150" B="255" />
                     <EndColor A="255" R="255" G="255" B="255" />
