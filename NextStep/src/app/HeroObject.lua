@@ -191,16 +191,23 @@ function HeroObject.eventCallback(luaFileName, node, callbackName)
 end
 
 -- JoyStick
+-- 控制小人不能重复移动, 多次触发
+local isHeroMoving = false
 
 function HeroObject.MoveHero(direction, animation)
     if EventDisabled() then 
        return 
     end
-
+    if isHeroMoving then
+    	return
+    end
+        
     --先移动小人,然后判断小人的位置是否有效
 	print(animation)
 	HeroObject.Animation:play(animation,false) 
-    local isOK = Services.Static_MapObject.MoveTo(direction)
+	
+	isHeroMoving = true
+    local isOK = Services.Static_MapObject.MoveTo(direction)      
     --如果小人移动了, 则刷新
     if isOK then
         local currentBlock = GetCurrentBlock()
@@ -255,6 +262,10 @@ end
 function HeroObject.TileMapSettedCallback()
     addButton()
     HeroObject.DisableBlocksList()
+end
+
+function HeroObject.MoveHeroEndCallback()
+    isHeroMoving = false
 end
 
 return HeroObject
