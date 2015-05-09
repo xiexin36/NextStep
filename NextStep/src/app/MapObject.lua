@@ -3,6 +3,8 @@ local MapObject = {}
 local mapData = {}
 local isInited = false
 
+local adjustYPos = 15;
+
 local function generateCornerPosition()
     local bornX = math.random(1, MapObject.mapSize.width)
     local bornY = math.random(1, MapObject.mapSize.height)
@@ -125,7 +127,9 @@ function MapObject.MoveTo(side)
         (Services.Static_BlockObject.HasDirection(curMapTile, side) and (nil == targetMapTile or Services.Static_BlockObject.HasDirection(targetMapTile, otherSide))) then
 
         local heroNode = Services.Static_HeroObject.Node
-        local sequence = cc.Sequence:create(cc.MoveTo:create(0.1, cc.p(MapObject.tilePosToScreenPos(cc.p(targetX, targetY)))),
+        local heroScrX, heroScrY = MapObject.tilePosToScreenPos(cc.p(targetX, targetY))
+        heroScrY = heroScrY + adjustYPos
+        local sequence = cc.Sequence:create(cc.MoveTo:create(0.1, cc.p(heroScrX, heroScrY)),
             cc.CallFunc:create(MoveToFinished))
         heroNode:runAction(sequence)
 
@@ -159,6 +163,9 @@ function MapObject.checkSurroundAndHighLight()
     local curBlock = MapObject.getMapTile(MapObject.heroPos)
 
     if nil == curBlock then
+        lightBlocks[1]:setPosition(MapObject.tilePosToScreenPos(MapObject.heroPos))
+        lightBlocks[1]:setVisible(true)
+        
         return
     end
 
@@ -235,7 +242,7 @@ function MapObject.start()
     end
 
     local scrX, scrY = MapObject.tilePosToScreenPos(MapObject.heroPos)
-    Services.Static_HeroObject.Node:setPosition(scrX, scrY)
+    Services.Static_HeroObject.Node:setPosition(scrX, scrY + adjustYPos)
     startBlock.Node:setPosition(scrX, scrY)
     MapObject.treasureNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.treasurePos))
     MapObject.outDoorNode.Node:setPosition(MapObject.tilePosToScreenPos(MapObject.doorPos))
