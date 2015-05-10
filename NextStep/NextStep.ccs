@@ -88,6 +88,7 @@
             <Image Name="StartPage.jpg" />
             <Image Name="StartPressed.png" />
           </Folder>
+          <Image Name="MapWithBear.png" />
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />
         <Project Name="JoyStick.csd" Type="Node" />
