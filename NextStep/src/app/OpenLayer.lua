@@ -17,7 +17,8 @@ function OpenLayer.create()
     Services.Static_MainScene.root:addChild(result.root)
     result.root:setLocalZOrder(300)
     OpenLayer.Node = result.root
-    result["OpenAnimation"].animation:gotoFrameAndPlay(0,false)
+    result.root:runAction(result.animation)
+    result.animation:gotoFrameAndPlay(0,false)
     return result.root
 end
 
