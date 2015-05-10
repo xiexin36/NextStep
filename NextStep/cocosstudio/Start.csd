@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="Image/StartPage/StartPage.jpg" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_Start" ActionTag="-1140923631" CallBackType="Touch" CallBackName="ButtonStartCallback" Tag="3" IconVisible="False" LeftMargin="377.8947" RightMargin="382.1053" TopMargin="424.1941" BottomMargin="115.8059" TouchEnable="True" FontSize="14" ButtonText="Start" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_Start" ActionTag="-1140923631" CallBackType="Touch" CallBackName="ButtonStartCallback" Tag="3" IconVisible="False" LeftMargin="377.8947" RightMargin="382.1053" TopMargin="424.1941" BottomMargin="115.8059" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="200.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="477.8947" Y="165.8059" />
@@ -43,7 +43,7 @@
             <FileData Type="Normal" Path="Image/StartPage/Logo.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Staff_2" ActionTag="-934099853" Tag="5" IconVisible="False" LeftMargin="88.4597" RightMargin="97.5403" TopMargin="604.7303" BottomMargin="8.2696" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Staff_2" ActionTag="-934099853" Tag="5" IconVisible="False" LeftMargin="88.4597" RightMargin="97.5403" TopMargin="604.7304" BottomMargin="8.2696" ctype="SpriteObjectData">
             <Size X="774.0000" Y="27.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="475.4597" Y="21.7696" />
