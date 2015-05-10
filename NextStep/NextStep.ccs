@@ -89,6 +89,18 @@
         <Project Name="Start.csd" Type="Scene" />
         <Project Name="Success.csd" Type="Scene" />
         <Project Name="OpenAniLayer.csd" Type="Layer" />
+        <Folder Name="BGM">
+          <Audio Name="MainScene.mp3" />
+          <Audio Name="Start.mp3" />
+          <Audio Name="Finish.mp3" />
+        </Folder>
+        <Folder Name="Sound">
+          <Audio Name="BlockSet.wav" />
+          <Audio Name="Success.WAV" />
+          <Audio Name="Button1.WAV" />
+          <Audio Name="StoneGate1.wav" />
+          <Audio Name="OpenGate.wav" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
