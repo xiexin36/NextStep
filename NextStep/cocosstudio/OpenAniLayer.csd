@@ -2,7 +2,12 @@
   <PropertyGroup Type="Layer" Name="OpenAniLayer" ID="a0726c2d-d724-4722-8a20-dc0363c97be3" Version="2.2.5.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="0" Speed="1.0000" />
+      <Animation Duration="25" Speed="1.0000">
+        <Timeline ActionTag="-1012112488" Property="ActionValue">
+          <InnerActionFrame FrameIndex="0" Tween="False" InnerActionType="NoLoopAction" CurrentAniamtionName="-- ALL --" SingleFrameIndex="0" />
+          <InnerActionFrame FrameIndex="25" Tween="False" InnerActionType="SingleFrame" CurrentAniamtionName="-- ALL --" SingleFrameIndex="20" />
+        </Timeline>
+      </Animation>
       <ObjectData Name="Layer" Tag="23" ctype="GameLayerObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
