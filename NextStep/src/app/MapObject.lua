@@ -98,8 +98,6 @@ end
 
 function MoveToFinished()
     print("Move to animation finished")
-
-    Services.showSuccess()
     if MapObject.heroPos.x == MapObject.treasurePos.x and MapObject.heroPos.y == MapObject.treasurePos.y then
         local tBox = MapObject.treasureNode.Node:getChildByTag(798)
         if nil ~= tBox then
