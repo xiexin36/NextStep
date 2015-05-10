@@ -121,7 +121,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="Image/Map.png" Plist="" />
+            <FileData Type="Normal" Path="Image/MapWithBear.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="ProjectNode_JoyStick" ActionTag="-1358933878" Tag="13" IconVisible="True" LeftMargin="812.4834" RightMargin="147.5166" TopMargin="518.2850" BottomMargin="121.7150" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
