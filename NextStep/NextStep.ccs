@@ -81,6 +81,13 @@
             <Image Name="FrameTopLeft.png" />
             <Image Name="FrameTopRight.png" />
           </Folder>
+          <Folder Name="StartPage">
+            <Image Name="Logo.png" />
+            <Image Name="Staff.png" />
+            <Image Name="StartNormal.png" />
+            <Image Name="StartPage.jpg" />
+            <Image Name="StartPressed.png" />
+          </Folder>
         </Folder>
         <Project Name="HeroNode.csd" Type="Node" />
         <Project Name="JoyStick.csd" Type="Node" />
